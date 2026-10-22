@@ -4,9 +4,9 @@ using UnityEngine.UI;
 public class PlayerHealth : LivingEntity {
     public Slider healthSlider;
 
-    public AudioClip deathClip;
-    public AudioClip hitClip;
-    public AudioClip itemPickupClip;
+    public AudioClip playerDeathClip;
+    public AudioClip playerHitClip;
+    public AudioClip playerItemPickupClip;
 
     private AudioSource playerSfx;
     private Animator playerAni;
@@ -40,7 +40,7 @@ public class PlayerHealth : LivingEntity {
 
     public override void OnDamage(float damage, Vector3 hitPoint, Vector3 hitDirection) {
         if (!dead) {
-            playerSfx.PlayOneShot(hitClip);
+            playerSfx.PlayOneShot(playerHitClip);
         }
         
         base.OnDamage(damage, hitPoint, hitDirection);
@@ -52,7 +52,7 @@ public class PlayerHealth : LivingEntity {
 
         healthSlider.gameObject.SetActive(false);
 
-        playerSfx.PlayOneShot(deathClip);
+        playerSfx.PlayOneShot(playerDeathClip);
         playerAni.SetTrigger("Die");
 
         playerMovement.enabled = false;
@@ -65,7 +65,7 @@ public class PlayerHealth : LivingEntity {
 
             if(item != null) {
                 item.Use(gameObject);
-                playerSfx.PlayOneShot(itemPickupClip);
+                playerSfx.PlayOneShot(playerItemPickupClip);
             }
         }
     }

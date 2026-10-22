@@ -2,8 +2,8 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Scriptable/GunData", fileName = "Gun Data")]
 public class GunData : ScriptableObject {
-    public AudioClip shotClip;
-    public AudioClip reloadClip;
+    public AudioClip gunShotClip;
+    public AudioClip gunReloadClip;
 
     public float damage = 25;
 

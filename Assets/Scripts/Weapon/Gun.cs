@@ -81,7 +81,7 @@ public class Gun : MonoBehaviour {
         muzzleFx.Play();
         shellFx.Play();
 
-        gunSfx.PlayOneShot(gunData.shotClip);
+        gunSfx.PlayOneShot(gunData.gunShotClip);
 
         bulletLine.SetPosition(0, fireTransform.position);
         bulletLine.SetPosition(1, hitPosition);
@@ -103,7 +103,7 @@ public class Gun : MonoBehaviour {
 
     private IEnumerator ReloadRoutine() {
         state = State.Reloading;
-        gunSfx.PlayOneShot(gunData.reloadClip);
+        gunSfx.PlayOneShot(gunData.gunReloadClip);
       
         yield return new WaitForSeconds(gunData.reloadTime);
 

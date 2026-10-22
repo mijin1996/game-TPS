@@ -10,8 +10,8 @@ public class Goblin : LivingEntity {
     private NavMeshAgent navAgent;
 
     public ParticleSystem hitFx;
-    public AudioClip deathSound;
-    public AudioClip hitSound;
+    public AudioClip goblinDeathClip;
+    public AudioClip goblinHitClip;
 
     private Animator goblinAni;
     private AudioSource goblinSfx;
@@ -85,7 +85,7 @@ public class Goblin : LivingEntity {
             hitFx.transform.rotation = Quaternion.LookRotation(hitNormal);
             hitFx.Play();
 
-            goblinSfx.PlayOneShot(hitSound);
+            goblinSfx.PlayOneShot(goblinHitClip);
         }
         
         base.OnDamage(damage, hitPoint, hitNormal);
@@ -103,7 +103,7 @@ public class Goblin : LivingEntity {
         navAgent.enabled = false;
 
         goblinAni.SetTrigger("Die");
-        goblinSfx.PlayOneShot(deathSound);
+        goblinSfx.PlayOneShot(goblinDeathClip);
     }
 
     private void OnTriggerStay(Collider other) {

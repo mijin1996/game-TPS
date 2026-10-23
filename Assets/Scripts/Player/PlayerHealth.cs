@@ -55,7 +55,7 @@ public class PlayerHealth : LivingEntity {
     }
 
     private void OnTriggerEnter(Collider other) {
-        if (!dead) {
+        if (!dead && !GM.ins.isPaused) {
             IItem item = other.GetComponent<IItem>();
             if (item != null) {
                 item.Use(gameObject);

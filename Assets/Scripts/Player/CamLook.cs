@@ -18,7 +18,7 @@ public class CamLook : MonoBehaviour {
     }
 
     private void Update() {
-        if (GM.ins != null && GM.ins.isGameOver) return;
+        if (GM.ins != null && (GM.ins.isGameOver || GM.ins.isPaused)) return;
         Vector2 delta = GetLookDelta();
 
         if (playerRb != null) playerRb.rotation *= Quaternion.Euler(0f, delta.x, 0f);

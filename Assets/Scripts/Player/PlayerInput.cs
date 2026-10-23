@@ -37,12 +37,14 @@ public class PlayerInput : MonoBehaviour {
     
 
     private void Update() {
-        if (GM.ins != null && GM.ins.isGameOver) {
+        if (GM.ins != null && (GM.ins.isGameOver || GM.ins.isPaused)) {
             move = 0;
             rotate = 0;
             fire = false;
             reload = false;
             scope = false;
+            grenade = false;
+            jump = false;
             return;
         }
 

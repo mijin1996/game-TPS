@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Goblin : LivingEntity {
+public class Goblin : LivingEntity, IFreeze {
     public LayerMask whatIsTarget;
 
     private LivingEntity targetEntity;
@@ -21,6 +21,8 @@ public class Goblin : LivingEntity {
     public float timeBetAttack = 0.5f;
     private float lastAttackTime;
 
+    private bool isFrozen;
+
     private bool hasTarget {
         get {
             if (targetEntity != null && !targetEntity.dead) {
@@ -29,6 +31,13 @@ public class Goblin : LivingEntity {
 
             return false;
         }
+    }
+    public void Freeze(bool frozen) {
+        if (dead) return;
+        isFrozen = frozen;
+        navAgent.isStopped = frozen;
+        if (frozen) navAgent.velocity = Vector3.zero;
+        goblinAni.speed = frozen ? 0f : 1f;
     }
 
     private void Awake() {
@@ -57,6 +66,11 @@ public class Goblin : LivingEntity {
 
     private IEnumerator UpdatePath() {
         while (!dead) {
+            if (isFrozen) { 
+                yield return new WaitForSeconds(1f); // 1초 마다 멈춤이야?를 esc누를때까지 계속 물어봄
+                continue;
+            }
+      
             if(hasTarget) {
                 navAgent.isStopped = false;
                 navAgent.SetDestination(targetEntity.transform.position);
@@ -107,6 +121,7 @@ public class Goblin : LivingEntity {
     }
 
     private void OnTriggerStay(Collider other) {
+        if (isFrozen) return; 
         if(!dead && Time.time >= lastAttackTime + timeBetAttack) {
             LivingEntity attackTarget = other.GetComponent<LivingEntity>();
 

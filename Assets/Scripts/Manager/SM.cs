@@ -21,6 +21,8 @@ public class SM : MonoBehaviour {
     [SerializeField] private AudioClip introClip;
     [SerializeField] private AudioClip gamePlayClip;
     [SerializeField] private AudioClip gameOverClip;
+
+    [SerializeField] private AudioClip pauseClip;
     
     
 
@@ -49,6 +51,10 @@ public class SM : MonoBehaviour {
         sfx.PlayOneShot(buttonClickClip);
     }
 
+    public void PlayPauseSfx() {                          // 추가
+        sfx.PlayOneShot(pauseClip);
+    }
+    
     public void PlayGameOverBgm() {
         bgm.clip = gameOverClip;
         bgm.Play();

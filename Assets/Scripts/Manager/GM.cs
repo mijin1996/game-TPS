@@ -6,7 +6,6 @@ public class GM : MonoBehaviour {
             if (gm == null) {
                 gm = FindObjectOfType<GM>();
             }
-
             return gm;
         }
     }
@@ -14,7 +13,7 @@ public class GM : MonoBehaviour {
     private static GM gm;
 
     private int score = 0;
-    public bool isGameover { get; private set; }
+    public bool isGameOver { get; private set; }
 
     private void Awake() {
         if (ins != this) {
@@ -27,14 +26,14 @@ public class GM : MonoBehaviour {
     }
 
     public void AddScore(int newScore) {
-        if (!isGameover) {
+        if (!isGameOver) {
             score += newScore;
             UIM.ins.UpdateScoreText(score);
         }
     }
 
     public void EndGame() {
-        isGameover = true;
-        UIM.ins.SetActiveGameoverUI(true);
+        isGameOver = true;
+        UIM.ins.SetActiveGameOverUI(true);
     }
 }

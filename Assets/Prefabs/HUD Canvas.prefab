@@ -200,7 +200,7 @@ MonoBehaviour:
   ammoText: {fileID: 114981677178112688}
   scoreText: {fileID: 114010141499081232}
   waveText: {fileID: 114843940844466002}
-  gameoverUI: {fileID: 1496761931941770}
+  gameOverUI: {fileID: 1496761931941770}
 --- !u!1 &1092682336142274
 GameObject:
   m_ObjectHideFlags: 0

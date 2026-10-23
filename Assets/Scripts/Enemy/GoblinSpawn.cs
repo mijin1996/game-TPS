@@ -11,7 +11,7 @@ public class GoblinSpawn : MonoBehaviour {
     private int wave;
 
     private void Update() {
-        if (GM.ins != null && GM.ins.isGameover) {
+        if (GM.ins != null && GM.ins.isGameOver) {
             return;
         }
 

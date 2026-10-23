@@ -18,7 +18,7 @@ public class UIM : MonoBehaviour {
     public Text ammoText;
     public Text scoreText;
     public Text waveText;
-    public GameObject gameoverUI;
+    public GameObject gameOverUI;
 
     public void UpdateAmmoText(int magAmmo, int remainAmmo) {
         ammoText.text = magAmmo + "/" + remainAmmo;
@@ -32,8 +32,8 @@ public class UIM : MonoBehaviour {
         waveText.text = "Wave : " + waves + "\nEnemy Left : " + cnt;
     }
 
-    public void SetActiveGameoverUI(bool active) {
-        gameoverUI.SetActive(active);
+    public void SetActiveGameOverUI(bool active) {
+        gameOverUI.SetActive(active);
     }
 
     public void GameRestart() {

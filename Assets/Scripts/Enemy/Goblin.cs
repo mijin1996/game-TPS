@@ -94,9 +94,9 @@ public class Goblin : LivingEntity {
     public override void Die() {
         base.Die();
 
-        Collider[] goblinCollliders = GetComponents<Collider>();
-        for (int i = 0; i < goblinCollliders.Length; i++) {
-            goblinCollliders[i].enabled = false;
+        Collider[] goblinColliders = GetComponents<Collider>();
+        for (int i = 0; i < goblinColliders.Length; i++) {
+            goblinColliders[i].enabled = false;
         }
 
         navAgent.isStopped = true;

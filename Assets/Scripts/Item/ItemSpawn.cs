@@ -38,7 +38,7 @@ public class ItemSpawn : MonoBehaviour {
     }
 
     private Vector3 GetRandomPointOnNavMesh(Vector3 center, float distance) {
-        Vector3 randomPos = Random.insideUnitSphere * distance + center;
+        Vector3 randomPos = Random.insideUnitSphere * distance + center; //insideUnitSphere : Random.insideUnitSphere: 반지름 1인 공 안의 랜덤한 점
 
         NavMeshHit hit;
 
@@ -47,3 +47,4 @@ public class ItemSpawn : MonoBehaviour {
         return hit.position;
     }
 }
+

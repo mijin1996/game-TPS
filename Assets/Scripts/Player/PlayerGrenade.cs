@@ -1,5 +1,5 @@
+using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 // 수류탄 던지기 — 개수 관리와 투척을 담당 (Player에 부착)
 public class PlayerGrenade : MonoBehaviour {
@@ -12,8 +12,12 @@ public class PlayerGrenade : MonoBehaviour {
 
     private PlayerInput playerInput;
 
+    // ---- 알림(이벤트): 보유 수류탄 수가 바뀜 ----
+    public static event Action<int> onGrenadeCntChanged;
+
     private void Start() {
         playerInput = GetComponent<PlayerInput>();
+        onGrenadeCntChanged?.Invoke(startGrenadeCnt);
     }
 
     private void Update() {
@@ -25,10 +29,12 @@ public class PlayerGrenade : MonoBehaviour {
     // 수류탄 아이템을 먹었을 때 호출 — 최대 보유 개수를 넘지 않게 더한다
     public void AddGrenade(int amount) {
         startGrenadeCnt = Mathf.Min(startGrenadeCnt + amount, maxGrenadeCnt);
+        onGrenadeCntChanged?.Invoke(startGrenadeCnt);
     }
 
     private void ThrowGrenade() {
         startGrenadeCnt--;
+        onGrenadeCntChanged?.Invoke(startGrenadeCnt);
 
         GameObject grenade = Instantiate(grenadePrefab, throwPoint.position, throwPoint.rotation);
         Rigidbody grenadeRb = grenade.GetComponent<Rigidbody>();

@@ -29,13 +29,6 @@ public class PlayerShooter : MonoBehaviour {
                 playerAni.SetTrigger("Reload");
             }
         }
-        UpdateUI();
-    }
-
-    private void UpdateUI() {
-        if (gun != null && UIM.ins != null) {
-            UIM.ins.UpdateAmmoText(gun.magAmmo, gun.ammoRemain);
-        }
     }
 
     private void OnAnimatorIK(int layerIndex) {

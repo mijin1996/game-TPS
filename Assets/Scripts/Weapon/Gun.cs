@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class Gun : MonoBehaviour {
@@ -10,6 +11,9 @@ public class Gun : MonoBehaviour {
 
     public State state { get; private set; }
 
+    // ---- 알림(이벤트): 탄알 수가 바뀜 (탄창, 남은 탄알) ----
+    public static event Action<int, int> onAmmoChanged;
+
     public Transform fireTransform;
 
     public ParticleSystem muzzleFx;
@@ -17,7 +21,7 @@ public class Gun : MonoBehaviour {
 
     private LineRenderer bulletLine;
 
-    private AudioSource gunSfx;
+    private AudioSource gunSource;
 
     public GunData gunData;
 
@@ -28,8 +32,10 @@ public class Gun : MonoBehaviour {
 
     private float lastFireTime;
 
+    public Camera scopeCam;   // 스코프를 켰을 때 조준 기준 카메라 (꺼져 있으면 메인 카메라 기준)
+
     private void Awake() {
-        gunSfx = GetComponent<AudioSource>();
+        gunSource = GetComponent<AudioSource>();
         bulletLine = GetComponent<LineRenderer>();
 
         bulletLine.positionCount = 2;
@@ -43,6 +49,21 @@ public class Gun : MonoBehaviour {
 
         state = State.Ready;
         lastFireTime = 0;
+        NotifyAmmo();
+    }
+
+    private void Start() {
+        NotifyAmmo();   // 처음 탄알 수를 UI에 알림
+    }
+
+    private void NotifyAmmo() {
+        onAmmoChanged?.Invoke(magAmmo, ammoRemain);
+    }
+
+    // 탄약 아이템을 먹었을 때
+    public void AddAmmo(int amount) {
+        ammoRemain += amount;
+        NotifyAmmo();
     }
 
     public void Fire() {
@@ -56,7 +77,19 @@ public class Gun : MonoBehaviour {
         RaycastHit hit;
         Vector3 hitPosition = Vector3.zero;
 
-        if(Physics.Raycast(fireTransform.position,fireTransform.forward,out hit, fireDistance)) {
+        Vector3 fireDir = fireTransform.forward;   // 평소: 총구 방향
+
+        // 화면 가운데(조준점)가 가리키는 곳으로 쏨: 스코프를 켰으면 스코프 카메라, 아니면 메인 카메라 기준
+        Camera aimCam = (scopeCam != null && scopeCam.gameObject.activeInHierarchy) ? scopeCam : Camera.main;
+        if (aimCam != null) {
+            Ray aimRay = aimCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+            int mask = ~LayerMask.GetMask("Player");   // ~ : Player 레이어만 빼고
+            RaycastHit aimHit;
+            Vector3 aimPoint = Physics.Raycast(aimRay, out aimHit, fireDistance, mask) ? aimHit.point : aimRay.GetPoint(fireDistance);
+            fireDir = (aimPoint - fireTransform.position).normalized;
+        }
+
+        if (Physics.Raycast(fireTransform.position, fireDir, out hit, fireDistance)) {
 
             IDamageable target = hit.collider.GetComponent<IDamageable>();
 
@@ -66,7 +99,7 @@ public class Gun : MonoBehaviour {
 
             hitPosition = hit.point;
         } else {
-            hitPosition = fireTransform.position + fireTransform.forward * fireDistance;
+            hitPosition = fireTransform.position + fireDir * fireDistance;
         }
 
         StartCoroutine(ShotEffect(hitPosition));
@@ -75,13 +108,14 @@ public class Gun : MonoBehaviour {
         if (magAmmo <= 0) {
             state = State.Empty;
         }
+        NotifyAmmo();
     }
 
     private IEnumerator ShotEffect(Vector3 hitPosition) {
         muzzleFx.Play();
         shellFx.Play();
 
-        gunSfx.PlayOneShot(gunData.gunShotClip);
+        gunSource.PlayOneShot(gunData.gunShotClip);
 
         bulletLine.SetPosition(0, fireTransform.position);
         bulletLine.SetPosition(1, hitPosition);
@@ -103,7 +137,7 @@ public class Gun : MonoBehaviour {
 
     private IEnumerator ReloadRoutine() {
         state = State.Reloading;
-        gunSfx.PlayOneShot(gunData.gunReloadClip);
+        gunSource.PlayOneShot(gunData.gunReloadClip);
       
         yield return new WaitForSeconds(gunData.reloadTime);
 
@@ -117,5 +151,6 @@ public class Gun : MonoBehaviour {
         ammoRemain -= ammoToFill;
 
         state = State.Ready;
+        NotifyAmmo();
     }
 }

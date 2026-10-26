@@ -4167,7 +4167,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3564055501463590534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 466e726f9cc84164da82681a0c0d3c8e, type: 3}
+  m_Script: {fileID: 11500000, guid: c1335f80b57e1564281355161c54162b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Goblin
   startingHealth: 100
@@ -4175,9 +4175,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   hitFx: {fileID: 198000011254678926, guid: f0c06d199e69ac548bb20d6eadf531ac, type: 3}
-  deathSound: {fileID: 8300000, guid: cd52b75397f4c0e46948d208e886c28b, type: 3}
-  hitSound: {fileID: 8300000, guid: 223c7dc42d805e74e8d8576796d3252d, type: 3}
-  attackSfx: {fileID: 8300000, guid: d0759a14111b9d545b018412f166921c, type: 3}
+  goblinDeathClip: {fileID: 8300000, guid: cd52b75397f4c0e46948d208e886c28b, type: 3}
+  goblinHitClip: {fileID: 8300000, guid: 223c7dc42d805e74e8d8576796d3252d, type: 3}
+  goblinAttackClip: {fileID: 8300000, guid: d0759a14111b9d545b018412f166921c, type: 3}
   damage: 20
   timeBetAttack: 0.5
   auraFx: {fileID: 5137123306192418792, guid: 5a8d99fb95262ea458a7b580f2a1611c, type: 3}
@@ -4259,7 +4259,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

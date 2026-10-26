@@ -1,11 +1,13 @@
-﻿using UnityEngine;
-using System.Linq;
+﻿using System;
+using UnityEngine;
 
+// 게임 상태(점수·게임오버·일시정지)만 관리한다
+// UI·소리는 직접 부르지 않고, 이벤트로 "무슨 일이 생겼다"고 알리기만 한다
 public class GM : MonoBehaviour {
     public static GM ins {
         get {
             if (gm == null) {
-                gm = FindObjectOfType<GM>();
+                gm = FindAnyObjectByType<GM>();
             }
             return gm;
         }
@@ -13,10 +15,13 @@ public class GM : MonoBehaviour {
 
     private static GM gm;
 
+    // ---- 알림(이벤트) ----
+    public static event Action<int> onScoreChanged;   // 점수가 바뀜 (새 점수)
+    public static event Action onGameOver;            // 게임오버
+
     private int score = 0;
     public bool isGameOver { get; private set; }
-
-    public bool isPaused { get; private set; } // 정지
+    public bool isPaused { get; private set; }
 
     private void Awake() {
         if (ins != this) {
@@ -24,38 +29,49 @@ public class GM : MonoBehaviour {
         }
     }
 
-    private void Start() {
-        FindObjectOfType<PlayerHealth>().onDeath += EndGame;
+    // ---- 듣기(구독) ----
+    private void OnEnable() {
+        GoblinSpawn.onGoblinKilled += OnGoblinKilled;
+        Coin.onCollected += AddScore;
+        SettingsMenu.onOpenChanged += SetPause;       // 설정 창이 열리면 멈춤, 닫히면 진행
     }
-    
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape) && !isGameOver) {
-            SetPause(!isPaused);
-        }
+
+    private void OnDisable() {
+        GoblinSpawn.onGoblinKilled -= OnGoblinKilled;
+        Coin.onCollected -= AddScore;
+        SettingsMenu.onOpenChanged -= SetPause;
+    }
+
+    private void Start() {
+        FindAnyObjectByType<PlayerHealth>().onDeath += EndGame;
+        onScoreChanged?.Invoke(score);
+    }
+
+    private void OnGoblinKilled() {
+        AddScore(100);
     }
 
     public void AddScore(int newScore) {
         if (!isGameOver) {
             score += newScore;
-            UIM.ins.UpdateScoreText(score);
+            onScoreChanged?.Invoke(score);
         }
     }
 
+    // 게임 일시정지는 이 함수 하나로만 함
+    // timeScale = 0이면 고블린 이동·애니메이션·물리·수류탄 타이머가 전부 멈춤
     public void SetPause(bool pause) {
         isPaused = pause;
-
-        var freezables = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IFreeze>();
-        foreach (IFreeze f in freezables) {
-            f.Freeze(pause);                     // 고블린이든 수류탄이든 상관없이 전부
-        }
-
-        UIM.ins.SetActivePauseUI(pause);
-        if (pause) SM.ins.PlayPauseSfx();
+        Time.timeScale = pause ? 0f : 1f;
     }
-
 
     public void EndGame() {
         isGameOver = true;
-        UIM.ins.SetActiveGameOverUI(true);
+        onGameOver?.Invoke();
+    }
+
+    // 멈춘 채로 씬이 바뀌어도 다음 씬이 멈춰 있지 않게
+    private void OnDestroy() {
+        if (gm == this) Time.timeScale = 1f;
     }
 }

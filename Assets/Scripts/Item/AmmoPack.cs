@@ -7,7 +7,7 @@ public class AmmoPack : MonoBehaviour, IItem {
         PlayerShooter playerShooter = target.GetComponent<PlayerShooter>();
 
         if (playerShooter != null && playerShooter.gun != null) {
-            playerShooter.gun.ammoRemain += ammo;
+            playerShooter.gun.AddAmmo(ammo);
         }
 
         Destroy(gameObject);

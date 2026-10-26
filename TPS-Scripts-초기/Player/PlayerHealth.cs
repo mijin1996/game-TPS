@@ -8,7 +8,7 @@ public class PlayerHealth : LivingEntity {
     public AudioClip playerHitClip;
     public AudioClip playerItemPickupClip;
 
-    private AudioSource playerSfx;
+    private AudioSource playerSource;
     private Animator playerAni;
 
     private PlayerMovement playerMovement;
@@ -16,7 +16,7 @@ public class PlayerHealth : LivingEntity {
 
     private void Awake() {
         playerAni = GetComponent<Animator>();
-        playerSfx = GetComponent<AudioSource>();
+        playerSource = GetComponent<AudioSource>();
 
         playerMovement = GetComponent<PlayerMovement>();
         playerShooter = GetComponent<PlayerShooter>();
@@ -40,7 +40,7 @@ public class PlayerHealth : LivingEntity {
 
     public override void OnDamage(float damage, Vector3 hitPoint, Vector3 hitDirection) {
         if (!dead) {
-            playerSfx.PlayOneShot(playerHitClip);
+            playerSource.PlayOneShot(playerHitClip);
         }
         
         base.OnDamage(damage, hitPoint, hitDirection);
@@ -52,7 +52,7 @@ public class PlayerHealth : LivingEntity {
 
         healthSlider.gameObject.SetActive(false);
 
-        playerSfx.PlayOneShot(playerDeathClip);
+        playerSource.PlayOneShot(playerDeathClip);
         playerAni.SetTrigger("Die");
 
         playerMovement.enabled = false;
@@ -65,7 +65,7 @@ public class PlayerHealth : LivingEntity {
 
             if(item != null) {
                 item.Use(gameObject);
-                playerSfx.PlayOneShot(playerItemPickupClip);
+                playerSource.PlayOneShot(playerItemPickupClip);
             }
         }
     }

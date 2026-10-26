@@ -1,9 +1,8 @@
-﻿using Microsoft.Win32.SafeHandles;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Goblin : LivingEntity, IFreeze {
+public class Goblin : LivingEntity {
     public LayerMask whatIsTarget;
 
     private LivingEntity targetEntity;
@@ -12,16 +11,20 @@ public class Goblin : LivingEntity, IFreeze {
     public ParticleSystem hitFx;
     public AudioClip goblinDeathClip;
     public AudioClip goblinHitClip;
+    public AudioClip goblinAttackClip;
 
     private Animator goblinAni;
-    private AudioSource goblinSfx;
+    private AudioSource goblinSource;
     private Renderer goblinRenderer;
 
     public float damage = 20f;
     public float timeBetAttack = 0.5f;
     private float lastAttackTime;
 
-    private bool isFrozen;
+    public GameObject auraFx;  // 바닥에서 발생하게 될 이펙트
+    private GameObject aura;
+
+    private bool isPlayerDead;   // 게임오버 알림을 받으면 true
 
     private bool hasTarget {
         get {
@@ -32,18 +35,10 @@ public class Goblin : LivingEntity, IFreeze {
             return false;
         }
     }
-    public void Freeze(bool frozen) {
-        if (dead) return;
-        isFrozen = frozen;
-        navAgent.isStopped = frozen;
-        if (frozen) navAgent.velocity = Vector3.zero;
-        goblinAni.speed = frozen ? 0f : 1f;
-    }
-
     private void Awake() {
         navAgent = GetComponent<NavMeshAgent>();
         goblinAni = GetComponent<Animator>();
-        goblinSfx = GetComponent<AudioSource>();
+        goblinSource = GetComponent<AudioSource>();
 
         goblinRenderer = GetComponentInChildren<Renderer>();
     }
@@ -54,6 +49,33 @@ public class Goblin : LivingEntity, IFreeze {
         damage = goblinData.damage;
         navAgent.speed = goblinData.speed;
         goblinRenderer.material.color = goblinData.skinColor;
+
+        // 원본 프리팹에서 바로 생성해서 고블린을 따라다니도록 자식으로 붙임
+        if (auraFx != null) {
+            aura = Instantiate(auraFx, transform);
+            foreach (ParticleSystem ps in aura.GetComponentsInChildren<ParticleSystem>()) {
+                var main = ps.main;
+                main.loop = true;
+            }
+        }
+    }
+
+    // ---- 듣기(구독): 게임오버가 되면 멈춤 ----
+    protected override void OnEnable() {
+        base.OnEnable();
+        GM.onGameOver += OnGameOver;
+    }
+
+    private void OnDisable() {
+        GM.onGameOver -= OnGameOver;
+    }
+
+    private void OnGameOver() {
+        isPlayerDead = true;
+        if (!dead && navAgent.enabled) {
+            navAgent.isStopped = true;
+            navAgent.velocity = Vector3.zero;
+        }
     }
 
     private void Start() {
@@ -61,16 +83,13 @@ public class Goblin : LivingEntity, IFreeze {
     }
 
     private void Update() {
-        goblinAni.SetBool("HasTarget", hasTarget);
+        goblinAni.SetBool("HasTarget", hasTarget && !isPlayerDead);   // 플레이어가 죽으면 대기 동작으로
     }
 
     private IEnumerator UpdatePath() {
         while (!dead) {
-            if (isFrozen) { 
-                yield return new WaitForSeconds(1f); // 1초 마다 멈춤이야?를 esc누를때까지 계속 물어봄
-                continue;
-            }
-      
+            if (isPlayerDead) yield break;   // 게임오버면 길 찾기 중단 (멈추는 건 OnGameOver에서)
+
             if(hasTarget) {
                 navAgent.isStopped = false;
                 navAgent.SetDestination(targetEntity.transform.position);
@@ -95,11 +114,11 @@ public class Goblin : LivingEntity, IFreeze {
 
     public override void OnDamage(float damage, Vector3 hitPoint, Vector3 hitNormal) {
         if(!dead) {
-            hitFx.transform.position = hitPoint;
-            hitFx.transform.rotation = Quaternion.LookRotation(hitNormal);
-            hitFx.Play();
+            ParticleSystem blood = Instantiate(hitFx, hitPoint, Quaternion.LookRotation(hitNormal));
+            blood.Play();
+            Destroy(blood.gameObject, 1f);
 
-            goblinSfx.PlayOneShot(goblinHitClip);
+            if (goblinHitClip != null) goblinSource.PlayOneShot(goblinHitClip);
         }
         
         base.OnDamage(damage, hitPoint, hitNormal);
@@ -117,22 +136,26 @@ public class Goblin : LivingEntity, IFreeze {
         navAgent.enabled = false;
 
         goblinAni.SetTrigger("Die");
-        goblinSfx.PlayOneShot(goblinDeathClip);
+        goblinSource.PlayOneShot(goblinDeathClip);
+        Destroy(aura);
     }
 
     private void OnTriggerStay(Collider other) {
-        if (isFrozen) return; 
+        if (isPlayerDead) return;   // 플레이어가 죽으면 공격도, 공격 소리도 없음
         if(!dead && Time.time >= lastAttackTime + timeBetAttack) {
             LivingEntity attackTarget = other.GetComponent<LivingEntity>();
 
             if(attackTarget != null && attackTarget == targetEntity) {
                 lastAttackTime = Time.time;
+                goblinAni.SetTrigger("Attack");
+                if (goblinAttackClip != null) goblinSource.PlayOneShot(goblinAttackClip);
 
                 Vector3 hitPoint = other.ClosestPoint(transform.position);
-                Vector3 hitNormal = transform.position = other.transform.position;
+                Vector3 hitNormal = transform.position - other.transform.position;
 
                 attackTarget.OnDamage(damage, hitPoint, hitNormal);
             }
+            
         }
     }
 }

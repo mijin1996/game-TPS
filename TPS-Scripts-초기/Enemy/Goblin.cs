@@ -14,7 +14,7 @@ public class Goblin : LivingEntity {
     public AudioClip goblinHitClip;
 
     private Animator goblinAni;
-    private AudioSource goblinSfx;
+    private AudioSource goblinSource;
     private Renderer goblinRenderer;
 
     public float damage = 20f;
@@ -34,7 +34,7 @@ public class Goblin : LivingEntity {
     private void Awake() {
         navAgent = GetComponent<NavMeshAgent>();
         goblinAni = GetComponent<Animator>();
-        goblinSfx = GetComponent<AudioSource>();
+        goblinSource = GetComponent<AudioSource>();
 
         goblinRenderer = GetComponentInChildren<Renderer>();
     }
@@ -85,7 +85,7 @@ public class Goblin : LivingEntity {
             hitFx.transform.rotation = Quaternion.LookRotation(hitNormal);
             hitFx.Play();
 
-            goblinSfx.PlayOneShot(goblinHitClip);
+            goblinSource.PlayOneShot(goblinHitClip);
         }
         
         base.OnDamage(damage, hitPoint, hitNormal);
@@ -103,7 +103,7 @@ public class Goblin : LivingEntity {
         navAgent.enabled = false;
 
         goblinAni.SetTrigger("Die");
-        goblinSfx.PlayOneShot(goblinDeathClip);
+        goblinSource.PlayOneShot(goblinDeathClip);
     }
 
     private void OnTriggerStay(Collider other) {

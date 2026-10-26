@@ -1,62 +1,44 @@
-using UnityEngine;
-using System.Collections;
+﻿using UnityEngine;
+using UnityEngine.Serialization;
 
-
+// 소리만 담당한다. 다른 스크립트의 알림(이벤트)을 듣고 알아서 소리를 바꾼다
 public class SM : MonoBehaviour {
-    public static SM ins {
-        get {
-            if (sm == null) {
-                sm = FindObjectOfType<SM>();
-            }
-            return sm;
-        }
-    }
-
-    private static SM sm;
-
     [Header("Sound")]
-    [SerializeField] private AudioSource bgm;
-    [SerializeField] private AudioSource sfx;
+    [SerializeField, FormerlySerializedAs("bgm")] private AudioSource bgmSource;   // 배경 음악 재생기
+    [SerializeField, FormerlySerializedAs("sfx")] private AudioSource sfxSource;   // 효과음 재생기
     [SerializeField] private AudioClip buttonClickClip;
     [SerializeField] private AudioClip introClip;
     [SerializeField] private AudioClip gamePlayClip;
     [SerializeField] private AudioClip gameOverClip;
 
-    [SerializeField] private AudioClip pauseClip;
-    
-    
+    // ---- 듣기(구독) ----
+    private void OnEnable() {
+        GM.onGameOver += PlayGameOverClip;
+        SceneChange.onChangeRequested += PlayButtonClickClip;   // 씬 이동 버튼을 누르면 클릭음
+        SettingsMenu.onButtonClicked += PlayButtonClickClip;    // 설정 창 버튼을 누르면 클릭음
+    }
+
+    private void OnDisable() {
+        GM.onGameOver -= PlayGameOverClip;
+        SceneChange.onChangeRequested -= PlayButtonClickClip;
+        SettingsMenu.onButtonClicked -= PlayButtonClickClip;
+    }
 
     private void Start() {
-        AudioClip clip = introClip != null ? introClip : gamePlayClip;
-        if (clip != null) {
-            bgm.clip = clip;
-            bgm.loop = true;
-            bgm.Play();
+        AudioClip startClip = introClip != null ? introClip : gamePlayClip;
+        if (startClip != null) {
+            bgmSource.clip = startClip;
+            bgmSource.loop = true;
+            bgmSource.Play();
         }
     }
 
-    // ---- 재사용 가능한 공용 코루틴 ----
-    // "클릭음 재생 → 대기 → 넘겨받은 동작 실행"을 누구나 이 함수로 쓸 수 있음
-    public void CoroutineMethod(System.Action action) {
-        StartCoroutine(SfxAfterSceneChange(action));
+    private void PlayButtonClickClip() {
+        if (buttonClickClip != null) sfxSource.PlayOneShot(buttonClickClip);
     }
 
-    private IEnumerator SfxAfterSceneChange(System.Action action) {
-        Sfx();
-        yield return new WaitForSeconds(buttonClickClip.length);
-        action?.Invoke();
-    }
-    //버튼클릭
-    public void Sfx() {
-        sfx.PlayOneShot(buttonClickClip);
-    }
-
-    public void PlayPauseSfx() {                          // 추가
-        sfx.PlayOneShot(pauseClip);
-    }
-    
-    public void PlayGameOverBgm() {
-        bgm.clip = gameOverClip;
-        bgm.Play();
+    private void PlayGameOverClip() {
+        bgmSource.clip = gameOverClip;
+        bgmSource.Play();
     }
 }

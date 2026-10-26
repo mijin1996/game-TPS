@@ -17,7 +17,7 @@ public class Gun : MonoBehaviour {
 
     private LineRenderer bulletLine;
 
-    private AudioSource gunSfx;
+    private AudioSource gunSource;
 
     public GunData gunData;
 
@@ -29,7 +29,7 @@ public class Gun : MonoBehaviour {
     private float lastFireTime;
 
     private void Awake() {
-        gunSfx = GetComponent<AudioSource>();
+        gunSource = GetComponent<AudioSource>();
         bulletLine = GetComponent<LineRenderer>();
 
         bulletLine.positionCount = 2;
@@ -81,7 +81,7 @@ public class Gun : MonoBehaviour {
         muzzleFx.Play();
         shellFx.Play();
 
-        gunSfx.PlayOneShot(gunData.gunShotClip);
+        gunSource.PlayOneShot(gunData.gunShotClip);
 
         bulletLine.SetPosition(0, fireTransform.position);
         bulletLine.SetPosition(1, hitPosition);
@@ -103,7 +103,7 @@ public class Gun : MonoBehaviour {
 
     private IEnumerator ReloadRoutine() {
         state = State.Reloading;
-        gunSfx.PlayOneShot(gunData.gunReloadClip);
+        gunSource.PlayOneShot(gunData.gunReloadClip);
       
         yield return new WaitForSeconds(gunData.reloadTime);
 

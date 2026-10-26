@@ -6,14 +6,14 @@ public class PlayerHealth : LivingEntity {
     public AudioClip playerDeathClip;
     public AudioClip playerHitClip;
     public AudioClip playerItemPickupClip;
-    private AudioSource playerSfx;
+    private AudioSource playerSource;
     private Animator playerAni;
     private PlayerMovement playerMovement;
     private PlayerShooter playerShooter;
 
     private void Awake() {
         playerAni = GetComponent<Animator>();
-        playerSfx = GetComponent<AudioSource>();
+        playerSource = GetComponent<AudioSource>();
         playerMovement = GetComponent<PlayerMovement>();
         playerShooter = GetComponent<PlayerShooter>();
     }
@@ -35,7 +35,7 @@ public class PlayerHealth : LivingEntity {
 
     public override void OnDamage(float damage, Vector3 hitPoint, Vector3 hitDirection) {
         if (!dead) {
-            playerSfx.PlayOneShot(playerHitClip);
+            playerSource.PlayOneShot(playerHitClip);
         }
         base.OnDamage(damage, hitPoint, hitDirection);
         healthSlider.value = health;
@@ -44,11 +44,12 @@ public class PlayerHealth : LivingEntity {
 
     public override void Die() {
         base.Die();
-        Collider[] goblinColliders = GetComponents<Collider>();
-        for (int i = 0; i < goblinColliders.Length; i++) {
-            goblinColliders[i].enabled = false;
-        }
-        playerSfx.PlayOneShot(playerDeathClip);
+        // 아래 코드로 인해서 플레이어가 죽었을 때에 플레이어 콜라이더를 삭제해서 땅으로 꺼지는 현상이 발생했었다. 그래서 주석으로 삭제처리
+        // Collider[] goblinColliders = GetComponents<Collider>();
+        // for (int i = 0; i < goblinColliders.Length; i++) {
+        //     goblinColliders[i].enabled = false;
+        // }
+        playerSource.PlayOneShot(playerDeathClip);
         playerAni.SetTrigger("Die");
         playerMovement.enabled = false;
         playerShooter.enabled = false;
@@ -59,7 +60,7 @@ public class PlayerHealth : LivingEntity {
             IItem item = other.GetComponent<IItem>();
             if (item != null) {
                 item.Use(gameObject);
-                playerSfx.PlayOneShot(playerItemPickupClip);
+                playerSource.PlayOneShot(playerItemPickupClip);
             }
         }
     }

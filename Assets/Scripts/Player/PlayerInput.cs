@@ -65,7 +65,7 @@ public class PlayerInput : MonoBehaviour {
         //move = Input.GetAxis(moveAxisName);
         //rotate = Input.GetAxis(rotateAxisName);
         fire = isFireButtonPressed || Input.GetKeyDown(KeyCode.F); //fire 버튼을 실행하기 위함 = fire버튼이 눌리거나 || 키보드가 눌리거나 📌
-        reload = isReloadButtonPressed || Input.GetKeyDown(KeyCode.R);;
+        reload = isReloadButtonPressed || Input.GetKeyDown(KeyCode.R);
 
         grenade = grenadeRequested || Input.GetKeyDown(KeyCode.G);
         grenadeRequested = false; 

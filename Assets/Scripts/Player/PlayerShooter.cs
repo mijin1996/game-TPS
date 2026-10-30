@@ -8,6 +8,12 @@ public class PlayerShooter : MonoBehaviour {
     private PlayerInput playerInput;
     private Animator playerAni;
 
+    // 체크하면: 평소엔 상체 레이어(1번) Weight 0 → 하체/전신 이동·idle 애니메이션이 그대로 보임
+    //          재장전 중에만 상체 레이어 Weight를 1로 올려 재장전 애니메이션을 보여줌
+    public bool upperLayerOnlyWhenReloading = false;
+    public int upperLayerIndex = 1;
+    public float upperLayerBlendSpeed = 8f;
+
     private void Start() {
         playerInput = GetComponent<PlayerInput>();
         playerAni = GetComponent<Animator>();
@@ -29,6 +35,20 @@ public class PlayerShooter : MonoBehaviour {
                 playerAni.SetTrigger("Reload");
             }
         }
+
+        UpdateUpperLayerWeight();
+    }
+
+    private void UpdateUpperLayerWeight()
+    {
+        if (!upperLayerOnlyWhenReloading || upperLayerIndex >= playerAni.layerCount)
+        {
+            return;
+        }
+
+        float target = (gun.state == Gun.State.Reloading) ? 1f : 0f;
+        float current = playerAni.GetLayerWeight(upperLayerIndex);
+        playerAni.SetLayerWeight(upperLayerIndex, Mathf.MoveTowards(current, target, upperLayerBlendSpeed * Time.deltaTime));
     }
 
     private void OnAnimatorIK(int layerIndex) {

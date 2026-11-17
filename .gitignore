@@ -8,6 +8,7 @@
 /[Uu]ser[Ss]ettings/
 /[Mm]emoryCaptures/
 /[Rr]ecordings/
+.utmp/
 
 # ===== 코드 편집기가 자동으로 만드는 파일 =====
 .vs/

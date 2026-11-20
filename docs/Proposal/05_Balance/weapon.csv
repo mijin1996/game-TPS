@@ -1,0 +1,3 @@
+﻿ID,Name,Damage,TimeBetFire(s),MagCapacity,StartAmmoRemain,ReloadTime(s),Range(m),DPS,MagDumpTime(s),DamagePerMag,SustainedDPS,Status
+WPN_001,기본 소총,25,0.12,25,100,1.8,50,208.33,3,625,130.21,현재(Gun Data.asset)
+GRN_001,수류탄,9999,-,-,3,-,반경 6,-,-,-,-,"현재(Grenade.cs) 충돌 즉시 또는 2.5초 뒤 폭발, 최대 50개"

@@ -62,6 +62,9 @@
     <label class="row">웨이브 증가 배율 <b id="vMul">×2.0</b></label><input id="rMul" type="range" min="1.1" max="2" step="0.1" value="2">
     <table id="tWave"></table>
     <p class="hint">고블린 체력 100 ÷ 총 데미지 25 = 마리당 4발. 시작 탄약은 탄창 25 + 예비 100 = 125발이에요. <span class="warn">빨간 줄</span>은 아이템 없이 버틸 수 없는 웨이브예요.</p>
+    <h2>제안 기능</h2>
+    <label><input id="cClear" type="checkbox"> 10웨이브 클리어 화면 (S-01 — 실제 게임은 아무 일도 안 일어남)</label>
+    <p class="hint">고블린은 플레이어 앞 10.7m 줄의 스폰 지점 3곳에서 생기고, 반경 20m 안에 들어와야 쫓아와요 (씬 · 코드 값).</p>
     <button id="btn">다시 시작</button>
   </aside>
 </main>
@@ -84,8 +87,8 @@
   const UNIT = 14;
   // ---- 코드 수치 ----
   const PLAYER_HP = 100, PLAYER_SPEED = 5;
-  const GUN = { damage: 25, mag: 25, startAmmo: 100, fireGap: 0.12, reload: 1.8, range: 40 };
-  const GOBLIN = { hp: 100, damage: 20, attackGap: 0.5, speed: 2, reach: 1.1, score: 100 };
+  const GUN = { damage: 25, mag: 25, startAmmo: 100, fireGap: 0.12, reload: 1.8, range: 50 };   // Gun.fireDistance 50
+  const GOBLIN = { hp: 100, damage: 20, attackGap: 0.5, speed: 2, reach: 1.1, score: 100, detect: 20 };   // 탐지 반경 20m, 한 번 찾으면 계속 추적
   const GRENADE = { start: 3, max: 100, fuse: 2.5, radius: 6, damage: 100, throwSpeed: 12 };
   const ITEM = { minGap: 2, maxGap: 7, dist: 5, ammo: 30, health: 50, grenade: 5, coin: 200, life: 5 };
   const MAX_WAVE = 10;
@@ -95,7 +98,8 @@
   const W = cv.width / UNIT, H = cv.height / UNIT;
   const $ = (id) => document.getElementById(id);
   const cfg = { cnt: 10, mul: 2 };
-  const SPAWNS = [[2, 2], [W - 2, 2], [2, H - 2], [W - 2, H - 2], [W / 2, 1.5], [W / 2, H - 1.5]];
+  // Play 씬 [Spawners]: 플레이어 시작점 기준 앞(+z) 10.7m 줄의 3곳 (x 0 · +7.4 · -19.7)
+  const SPAWNS = [[W / 2, H / 2 - 10.7], [W / 2 + 7.4, H / 2 - 10.7], [W / 2 - 19.7, H / 2 - 10.7]];
   const keys = new Set();
   const mouse = { x: W / 2, y: H / 2 - 5, down: false };
   let s;
@@ -117,7 +121,7 @@
     const n = waveCount(s.wave);
     for (let i = 0; i < n; i++) {
       const [x, y] = SPAWNS[Math.floor(Math.random() * SPAWNS.length)];
-      s.goblins.push({ x: x + rand(-1, 1), y: y + rand(-1, 1), hp: GOBLIN.hp, atkT: 0, flash: 0 });
+      s.goblins.push({ x: x + rand(-1, 1), y: y + rand(-1, 1), hp: GOBLIN.hp, atkT: 0, flash: 0, found: false });
     }
     s.banner = 1.6;
   }
@@ -178,8 +182,10 @@
     if (s.over) return;
     const p = s.p;
     if (s.goblins.length === 0) {
-      if (s.wave >= MAX_WAVE) { s.over = true; s.win = true; return; }
-      spawnWave();
+      if (s.wave >= MAX_WAVE) {
+        // 실제 코드: 조건(웨이브 < 10)이 거짓 → 아무 일도 안 일어남 (S-01). 클리어 화면은 제안 기능
+        if ($('cClear').checked) { s.over = true; s.win = true; return; }
+      } else spawnWave();
     }
     let dx = 0, dy = 0;
     if (keys.has('KeyA')) dx--; if (keys.has('KeyD')) dx++; if (keys.has('KeyW')) dy--; if (keys.has('KeyS')) dy++;
@@ -193,10 +199,12 @@
     }
     if (mouse.down) fire();
 
-    // 고블린: 플레이어 추적(NavMesh 대신 직선) + 서로 밀어내기 + 근접 공격
+    // 고블린: 반경 20m 안에서 찾으면 계속 추적(NavMesh 대신 직선) + 서로 밀어내기 + 근접 공격
     const crowd = s.goblins.length <= 400;
     for (const g of s.goblins) {
       const gx = p.x - g.x, gy = p.y - g.y, d = Math.hypot(gx, gy) || 1;
+      if (!g.found && d <= GOBLIN.detect) g.found = true;
+      if (!g.found) { g.flash = Math.max(0, g.flash - dt); continue; }   // 아직 못 찾음 → 제자리 대기
       if (d > GOBLIN.reach) { g.x += gx / d * GOBLIN.speed * dt; g.y += gy / d * GOBLIN.speed * dt; }
       else {
         g.atkT -= dt;
@@ -305,7 +313,7 @@
   }
 
   let last = performance.now();
-  function loop(now) { const dt = Math.min(0.033, (now - last) / 1000); last = now; if (started) update(dt); draw(); if (!started) drawStartGate(); requestAnimationFrame(loop); }
+  function loop(now) { const dt = Math.max(0, Math.min(0.033, (now - last) / 1000)); last = now; if (started) update(dt); draw(); if (!started) drawStartGate(); requestAnimationFrame(loop); }
 
   function toWorld(e) { const r = cv.getBoundingClientRect(); return [(e.clientX - r.left) / r.width * W, (e.clientY - r.top) / r.height * H]; }
   cv.addEventListener('pointermove', (e) => { [mouse.x, mouse.y] = toWorld(e); });

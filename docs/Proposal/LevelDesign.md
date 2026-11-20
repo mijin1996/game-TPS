@@ -1,6 +1,6 @@
 # 레벨 디자인 — Play 씬 · 10웨이브
 
-> 문서 세트: [목차](Proposal.md) · [컨셉](Concept.md) · [시스템-전투](System_Weapon.md) · [시스템-게임 흐름](System_GameFlow.md) · [전투·개체](Combat_Entity.md) · **레벨 디자인** · [밸런스](Balance.md) · [Suggestions](Suggestions.md)
+> 문서 세트: [목차](Proposal.md) · [컨셉](Concept.md) · [시스템-전투](System_Weapon.md) · [시스템-게임 흐름](System_GameFlow.md) · [전투·개체](Combat_Entity.md) · **레벨 디자인** · [밸런스](Balance.md) · [needFix](needFix.md)
 > 데이터: [`Balance/wave.json`](Balance/wave.json)
 
 ---
@@ -21,7 +21,7 @@ x:   -19.66                  0          7.39
        SP3 ----------------- SP1 ------ SP2        <- [Spawners] 로컬 x 좌표 (y 0, z 0)
        |<------- 19.66 ----->|<- 7.39 ->|
 ```
-> 맵 전체 배치(엄폐물 · 플레이어 시작 위치)는 씬 탑다운 캡처로 넣어 주세요 → [S-19](Suggestions.md)
+> 맵 전체 배치(엄폐물 · 플레이어 시작 위치)는 씬 탑다운 캡처로 넣어 주세요 → [S-19](needFix.md)
 
 **[도면] Play 씬 — 플레이어 시작 · 고블린 스폰 지점 (위에서 본 모습)**
 ```
@@ -71,7 +71,7 @@ z -1.1   x -22.4 ~ 10.1  (오른쪽 = +x, 위 = +z)
 | 누적 | 10 | 30 | 70 | 150 | 310 | 630 | 1,270 | 2,550 | 5,110 | 10,230 |
 
 ## 4. 난이도 곡선
-> 바꾸자는 곡선 · 웨이브 구성은 [S-15 ~ S-17](Suggestions.md)
+> 바꾸자는 곡선 · 웨이브 구성은 [S-15 ~ S-17](needFix.md)
 
 **[막대그래프] 웨이브별 고블린 수 (1 ~ 6웨이브)**
 ```mermaid

@@ -1,6 +1,6 @@
 # 시스템 — 전투 (사격 · 재장전 · 수류탄 · 스코프 · 아이템)
 
-> 문서 세트: [목차](Proposal.md) · [컨셉](Concept.md) · **시스템-전투** · [시스템-게임 흐름](System_GameFlow.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · [Suggestions](Suggestions.md)
+> 문서 세트: [목차](Proposal.md) · [컨셉](Concept.md) · **시스템-전투** · [시스템-게임 흐름](System_GameFlow.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · [needFix](needFix.md)
 > 관련 코드: `Gun.cs` · `PlayerShooter.cs` · `PlayerInput.cs` · `PlayerGrenade.cs` · `Grenade.cs` · `Scope.cs` · `ItemSpawn.cs` · `PlayerHealth.cs` · `Item/*.cs`
 
 ---
@@ -359,28 +359,28 @@ flowchart TB
   classDef bad fill:#A33A33,color:#fff,stroke:#A33A33
   classDef todo fill:#6B7280,color:#fff,stroke:#6B7280
 ```
-> 읽는 법: 주황 = 이런 상황이면? → 초록 ✅ 코드가 이미 처리함 / 빨강 ⚠️ 문제 (괄호 = Suggestions 번호) / 회색 💡 고치면 좋은 점. 아래 표에 같은 번호로 자세히 있어요.
+> 읽는 법: 주황 = 이런 상황이면? → 초록 ✅ 코드가 이미 처리함 / 빨강 ⚠️ 문제 (괄호 = needFix 번호) / 회색 💡 고치면 좋은 점. 아래 표에 같은 번호로 자세히 있어요.
 
 | # | 상황 | 현재 동작 | 상태 |
 |---|---|---|---|
 | 1 | 재장전 중 재장전 연타 | `Reloading`이면 거부 | ✅ |
 | 2 | 재장전 중 발사 | `Ready`가 아니면 무시 | ✅ |
 | 3 | 탄창 가득일 때 재장전 | 거부 | ✅ |
-| 4 | 탄창 0에서 발사 | 반응 없음 (소리 · 안내 없음, 자동 재장전 없음) | ⚠️ → [S-04](Suggestions.md) |
-| 5 | 예비 탄약 0에서 재장전 | 조용히 실패 | ⚠️ → [S-05](Suggestions.md) |
-| 6 | 발사 입력과 재장전이 같은 프레임 | 재장전 입력 무시 | ⚠️ → [S-06](Suggestions.md) |
-| 7 | 수류탄 연타 | 쿨다운 없음 | ⚠️ → [S-07](Suggestions.md) |
+| 4 | 탄창 0에서 발사 | 반응 없음 (소리 · 안내 없음, 자동 재장전 없음) | ⚠️ → [S-04](needFix.md) |
+| 5 | 예비 탄약 0에서 재장전 | 조용히 실패 | ⚠️ → [S-05](needFix.md) |
+| 6 | 발사 입력과 재장전이 같은 프레임 | 재장전 입력 무시 | ⚠️ → [S-06](needFix.md) |
+| 7 | 수류탄 연타 | 쿨다운 없음 | ⚠️ → [S-07](needFix.md) |
 | 8 | 보유 수류탄 0에서 투척 | 무시 | ✅ |
 | 9 | 충돌 폭발과 시간 폭발이 겹침 | `hasExploded`로 1번만 | ✅ |
 | 10 | 콜라이더가 여러 개인 고블린 | `dead` 검사로 1번만 피해 | ✅ |
 | 11 | 수류탄이 플레이어에 닿음 | 충돌 무시, 플레이어 피해 없음 | ✅ |
 | 12 | 조준 레이가 플레이어 몸에 맞음 | Player 레이어 제외 | ✅ |
-| 13 | 체력 팩으로 최대 체력 초과 | `RestoreHealth`에 상한 없음 | ⚠️ → [S-02](Suggestions.md) |
-| 14 | 예비 탄약 · 점수 | 상한 없음 | → [S-08](Suggestions.md) |
+| 13 | 체력 팩으로 최대 체력 초과 | `RestoreHealth`에 상한 없음 | ⚠️ → [S-02](needFix.md) |
+| 14 | 예비 탄약 · 점수 | 상한 없음 | → [S-08](needFix.md) |
 | 15 | 일시정지 · 사망 중 아이템 접촉 | 획득 무시 | ✅ |
-| 16 | 아이템 생성 위치에 NavMesh 없음 | `SamplePosition` 결과를 검사하지 않음 | ⚠️ → [S-03](Suggestions.md) |
+| 16 | 아이템 생성 위치에 NavMesh 없음 | `SamplePosition` 결과를 검사하지 않음 | ⚠️ → [S-03](needFix.md) |
 | 17 | 게임오버 · 일시정지 중 입력 | `PlayerInput`이 모든 값 0 | ✅ |
-| 18 | `Scope.zoomFov` (씬 값 20) | 코드에서 사용하지 않음 (스코프 카메라로 대체) | → [S-09](Suggestions.md) |
+| 18 | `Scope.zoomFov` (씬 값 20) | 코드에서 사용하지 않음 (스코프 카메라로 대체) | → [S-09](needFix.md) |
 
 ## 6. UI 피드백
 | 이벤트 | 화면 | 소리 |

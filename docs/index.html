@@ -86,8 +86,8 @@
   const PLAYER_HP = 100, PLAYER_SPEED = 5;
   const GUN = { damage: 25, mag: 25, startAmmo: 100, fireGap: 0.12, reload: 1.8, range: 40 };
   const GOBLIN = { hp: 100, damage: 20, attackGap: 0.5, speed: 2, reach: 1.1, score: 100 };
-  const GRENADE = { start: 3, max: 50, fuse: 2.5, radius: 6, damage: 9999, throwSpeed: 12 };
-  const ITEM = { minGap: 2, maxGap: 7, dist: 5, ammo: 30, health: 50, grenade: 1, coin: 200, life: 5 };
+  const GRENADE = { start: 3, max: 100, fuse: 2.5, radius: 6, damage: 100, throwSpeed: 12 };
+  const ITEM = { minGap: 2, maxGap: 7, dist: 5, ammo: 30, health: 50, grenade: 5, coin: 200, life: 5 };
   const MAX_WAVE = 10;
   const BULLETS_PER_GOBLIN = Math.ceil(GOBLIN.hp / GUN.damage);
   const cv = document.getElementById('cv');
@@ -171,7 +171,7 @@
     if (it.kind === 'health') p.hp += ITEM.health;   // 코드에 상한 없음 → 100 넘을 수 있음
     if (it.kind === 'grenade') p.grenades = Math.min(GRENADE.max, p.grenades + ITEM.grenade);
     if (it.kind === 'coin') s.score += ITEM.coin;
-    s.fx.push({ x: it.x, y: it.y, t: 0.8, text: { ammo: `+${ITEM.ammo}발`, health: `+${ITEM.health} HP`, grenade: '+1 💣', coin: `+${ITEM.coin}` }[it.kind] });
+    s.fx.push({ x: it.x, y: it.y, t: 0.8, text: { ammo: `+${ITEM.ammo}발`, health: `+${ITEM.health} HP`, grenade: '+5 💣', coin: `+${ITEM.coin}` }[it.kind] });
   }
 
   function update(dt) {

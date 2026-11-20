@@ -1,0 +1,45 @@
+{
+  "items": [
+    {
+      "id": "ITM_AMMO",
+      "name": "탄약 팩",
+      "effect": "ammo",
+      "value": 30,
+      "spawnWeight": 0.25,
+      "lifetimeSec": 5,
+      "source": "Prefabs/Play/AmmoPack.prefab"
+    },
+    {
+      "id": "ITM_HP",
+      "name": "체력 팩",
+      "effect": "health",
+      "value": 50,
+      "spawnWeight": 0.25,
+      "lifetimeSec": 5,
+      "source": "Prefabs/Play/HealthPack.prefab"
+    },
+    {
+      "id": "ITM_GRN",
+      "name": "수류탄 팩",
+      "effect": "grenade",
+      "value": 5,
+      "spawnWeight": 0.25,
+      "lifetimeSec": 5,
+      "source": "Grenades-Item.prefab GrenadePack"
+    },
+    {
+      "id": "ITM_COIN",
+      "name": "코인",
+      "effect": "score",
+      "value": 200,
+      "spawnWeight": 0.25,
+      "lifetimeSec": 5,
+      "source": "Prefabs/Play/Coin.prefab"
+    }
+  ],
+  "spawn": {
+    "intervalMinSec": 2,
+    "intervalMaxSec": 7,
+    "radiusM": 5
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "guns": [
+    {
+      "id": "WPN_001",
+      "name": "소총",
+      "damage": 25,
+      "timeBetFire": 0.12,
+      "magCapacity": 25,
+      "startAmmoRemain": 100,
+      "reloadTime": 1.8,
+      "fireDistance": 50,
+      "derived": {
+        "dps": 208.33,
+        "magDumpTimeSec": 3,
+        "damagePerMag": 625,
+        "sustainedDps": 130.21
+      },
+      "source": "ScriptableData/Play/Gun Data.asset, Gun.fireDistance"
+    }
+  ],
+  "grenades": [
+    {
+      "id": "GRN_001",
+      "name": "수류탄",
+      "explosionDamage": 100,
+      "explosionRadius": 6,
+      "startCount": 3,
+      "maxCount": 100,
+      "source": "Grenades-Item/weapon.prefab, Play.unity PlayerGrenade"
+    }
+  ],
+  "units": {
+    "timeBetFire": "초",
+    "reloadTime": "초",
+    "fireDistance": "m",
+    "explosionRadius": "m"
+  }
+}

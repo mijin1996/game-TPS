@@ -1,0 +1,101 @@
+{
+  "rule": {
+    "cntPerWave": 10,
+    "growth": 2,
+    "maxWave": 10,
+    "formula": "cntPerWave × growth^(wave-1)",
+    "source": "GoblinSpawn"
+  },
+  "waves": [
+    {
+      "wave": 1,
+      "count": 10,
+      "derived": {
+        "cumulative": 10,
+        "shotsNeeded": 40,
+        "shotsNeededCumulative": 40
+      }
+    },
+    {
+      "wave": 2,
+      "count": 20,
+      "derived": {
+        "cumulative": 30,
+        "shotsNeeded": 80,
+        "shotsNeededCumulative": 120
+      }
+    },
+    {
+      "wave": 3,
+      "count": 40,
+      "derived": {
+        "cumulative": 70,
+        "shotsNeeded": 160,
+        "shotsNeededCumulative": 280
+      }
+    },
+    {
+      "wave": 4,
+      "count": 80,
+      "derived": {
+        "cumulative": 150,
+        "shotsNeeded": 320,
+        "shotsNeededCumulative": 600
+      }
+    },
+    {
+      "wave": 5,
+      "count": 160,
+      "derived": {
+        "cumulative": 310,
+        "shotsNeeded": 640,
+        "shotsNeededCumulative": 1240
+      }
+    },
+    {
+      "wave": 6,
+      "count": 320,
+      "derived": {
+        "cumulative": 630,
+        "shotsNeeded": 1280,
+        "shotsNeededCumulative": 2520
+      }
+    },
+    {
+      "wave": 7,
+      "count": 640,
+      "derived": {
+        "cumulative": 1270,
+        "shotsNeeded": 2560,
+        "shotsNeededCumulative": 5080
+      }
+    },
+    {
+      "wave": 8,
+      "count": 1280,
+      "derived": {
+        "cumulative": 2550,
+        "shotsNeeded": 5120,
+        "shotsNeededCumulative": 10200
+      }
+    },
+    {
+      "wave": 9,
+      "count": 2560,
+      "derived": {
+        "cumulative": 5110,
+        "shotsNeeded": 10240,
+        "shotsNeededCumulative": 20440
+      }
+    },
+    {
+      "wave": 10,
+      "count": 5120,
+      "derived": {
+        "cumulative": 10230,
+        "shotsNeeded": 20480,
+        "shotsNeededCumulative": 40920
+      }
+    }
+  ]
+}

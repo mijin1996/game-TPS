@@ -1,0 +1,60 @@
+{
+  "goblins": [
+    {
+      "id": "MOB_001",
+      "name": "Goblin Data",
+      "health": 100,
+      "damage": 20,
+      "timeBetAttack": 0.5,
+      "speed": 2,
+      "detectRadius": 20,
+      "score": 100,
+      "derived": {
+        "shotsToKill": 4,
+        "timeToKillSec": 0.36,
+        "dpsToPlayer": 40,
+        "hitsToKillPlayer": 5
+      },
+      "source": "ScriptableData/Play/Goblin Data.asset"
+    },
+    {
+      "id": "MOB_002",
+      "name": "Goblin Data 1",
+      "health": 100,
+      "damage": 20,
+      "timeBetAttack": 0.5,
+      "speed": 2,
+      "detectRadius": 20,
+      "score": 100,
+      "derived": {
+        "shotsToKill": 4,
+        "timeToKillSec": 0.36,
+        "dpsToPlayer": 40,
+        "hitsToKillPlayer": 5
+      },
+      "source": "ScriptableData/Play/Goblin Data 1.asset"
+    },
+    {
+      "id": "MOB_003",
+      "name": "Goblin Data 2",
+      "health": 100,
+      "damage": 20,
+      "timeBetAttack": 0.5,
+      "speed": 2,
+      "detectRadius": 20,
+      "score": 100,
+      "derived": {
+        "shotsToKill": 4,
+        "timeToKillSec": 0.36,
+        "dpsToPlayer": 40,
+        "hitsToKillPlayer": 5
+      },
+      "source": "ScriptableData/Play/Goblin Data 2.asset"
+    }
+  ],
+  "units": {
+    "timeBetAttack": "초",
+    "speed": "m/s",
+    "detectRadius": "m"
+  }
+}

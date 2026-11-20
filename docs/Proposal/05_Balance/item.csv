@@ -1,5 +1,0 @@
-﻿ID,Name,Effect,Value,SpawnWeight,Lifetime(s),Note
-ITM_AMMO,탄약 팩,예비 탄약 +,30,25%,5,상한 없음
-ITM_HP,체력 팩,체력 +,50,25%,5,현재 최대 체력(100) 초과 가능 → 상한 100 제안
-ITM_GRN,수류탄 팩,수류탄 +,1,25%,5,최대 50개
-ITM_COIN,코인,점수 +,200,25%,5,사용처 없음 → 업그레이드 재화 제안

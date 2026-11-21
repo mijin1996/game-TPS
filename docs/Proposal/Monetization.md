@@ -57,7 +57,6 @@ flowchart LR
   classDef ui fill:#5A4A9E,color:#fff,stroke:#5A4A9E
   classDef data fill:#A33A33,color:#fff,stroke:#A33A33
 ```
-> 읽는 법: 왼쪽 초록 = 코인이 생기는 곳, 가운데 빨강 = 쌓이는 곳, 오른쪽 파랑 = 쓰는 곳이에요.
 
 **한 판 코인 수급 (계산)**
 ```

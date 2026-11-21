@@ -65,7 +65,7 @@
 |---|---|---|---|---|---|---|
 | `MDL_GOB_RUNNER` · `MDL_GOB_BRUTE` | 고블린 변형 (색 · 크기 차이로도 가능) | 기존 고블린 리그 재사용 | — | [S-16](needFix.md) | 미정 | 대기 |
 | `ANI_GOB_ATK_WINDUP` | 공격 예고 동작 | 기존 리그 | 0.3초 | [S-17](needFix.md) | 미정 | 대기 |
-| `FX_GOB_HITFLASH` | 피격 흰색 번쩍임 | 머티리얼 · 셰이더 | 0.1초 | [S-17](needFix.md) | ME | 대기 |
+| `FX_GOB_HITFLASH` | 피격 흰색 번쩍임 | 머티리얼 · 셰이더 | 0.1초 | [S-17](needFix.md) | 개발자 | 대기 |
 | `UI_CLEAR` | 클리어 창 | 1080 × 1920 기준 | — | [S-01](needFix.md) | 미정 | 대기 |
 | `UI_SHOP_*` | 업그레이드 상점 아이콘 3종 | 256 × 256 PNG | — | [Business Model](Monetization.md) | 미정 | 대기 |
 | `SFX_MAG_EMPTY` | 빈 탄창 소리 | WAV · 0.2초 이내 | — | [S-04](needFix.md) | 미정 | 대기 |

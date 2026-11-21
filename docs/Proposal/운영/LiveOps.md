@@ -1,8 +1,8 @@
 # 라이브 운영 — game-TPS
 
-> 문서 세트: [목차](Proposal.md) · 기획: [컨셉](Concept.md) · [시스템-전투](System_Weapon.md) · [시스템-게임 흐름](System_GameFlow.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](Business.md) · [요구사항·로드맵](Requirements.md) · [Business Model](Monetization.md) · [서버·데이터](Server_Data.md) · [리소스](Resources.md) · [로그·지표](Analytics.md) · [QA·출시](QA_Release.md) · **라이브 운영** · [사업화·법무](Business_Legal.md) · [needFix](needFix.md)
+> 문서 세트: [목차](../Proposal.md) · 기획: [컨셉](../기획/Concept.md) · [시스템-전투](../기획/System_Weapon.md) · [시스템-게임 흐름](../기획/System_GameFlow.md) · [전투·개체](../기획/Combat_Entity.md) · [레벨 디자인](../기획/LevelDesign.md) · [밸런스](../기획/Balance.md) · 사업·운영: [사업 검토](../대표/Business.md) · [요구사항·로드맵](../기획/Requirements.md) · [Business Model](../기획/Monetization.md) · [서버·데이터](../개발/Server_Data.md) · [리소스](../디자인/Resources.md) · [로그·지표](../기획/Analytics.md) · [QA·출시](../QA/QA_Release.md) · **라이브 운영** · [사업화·법무](../대표/Business_Legal.md) · [needFix](../needFix.md)
 
-> **문서 정보** · 문서 번호 `D12-LIVE` · 버전 v1.0 · 상태 `Draft` · 담당 운영 담당 · 최종 수정 2026-11-21 · 관련 문서 [로그·지표](Analytics.md)
+> **문서 정보** · 문서 번호 `D12-LIVE` · 버전 v1.0 · 상태 `Draft` · 담당 운영 담당 · 최종 수정 2026-11-21 · 관련 문서 [로그·지표](../기획/Analytics.md)
 
 **변경 이력**
 
@@ -26,12 +26,12 @@
 | 지표 | 이상 기준 | 대응 |
 |---|---|---|
 | D1 재접속률 | 지난주보다 5%p 하락 | 첫 판 웨이브 1 ~ 3 난이도 · 튜토리얼 점검 |
-| 웨이브별 도달률 | 한 웨이브에서 30%p 이상 급락 | 그 웨이브 마리 수 · 종류 조정 ([밸런스](Balance.md) JSON) |
+| 웨이브별 도달률 | 한 웨이브에서 30%p 이상 급락 | 그 웨이브 마리 수 · 종류 조정 ([밸런스](../기획/Balance.md) JSON) |
 | 한 판 평균 시간 | 4분 초과 | 웨이브 수 · 마리 수 줄이기 |
 | 크래시율 | 1% 초과 | 핫픽스 |
 | 광고 시청률 | 20% 미만 | 보상 크기 · 버튼 위치 점검 |
 
-> 밸런스만 바꿀 때는 JSON만 고쳐서 내보낼 수 있게, 나중에 **원격 설정**(Remote Config) 도입을 검토해요 → [F-06](needFix.md#8-정할-것)
+> 밸런스만 바꿀 때는 JSON만 고쳐서 내보낼 수 있게, 나중에 **원격 설정**(Remote Config) 도입을 검토해요 → [F-06](../needFix.md#8-정할-것)
 
 ## 4. 이벤트 캘린더 (예시)
 | 이벤트 | 기간 | 규칙 · 보상 | 필요한 작업 |
@@ -55,8 +55,8 @@
 | 결제했는데 안 들어옴 | 주문번호 확인 → 스토어 기록 조회 → 수동 지급 | 24시간 |
 | 환불 요청 | 스토어 환불 정책 안내 (환불은 스토어가 처리) | 24시간 |
 | 미성년자 결제 취소 | 법정대리인 확인 서류 → 스토어 환불 절차 안내, 지급 재화 회수 | 3일 |
-| 기기 변경 후 기록 없음 | 계정 연동 여부 확인 ([서버](Server_Data.md) §5) | 24시간 |
-| 버그 신고 | 기기 · 버전 · 재현 방법 받기 → [QA](QA_Release.md) TC 추가 | 확인 후 답변 |
+| 기기 변경 후 기록 없음 | 계정 연동 여부 확인 ([서버](../개발/Server_Data.md) §5) | 24시간 |
+| 버그 신고 | 기기 · 버전 · 재현 방법 받기 → [QA](../QA/QA_Release.md) TC 추가 | 확인 후 답변 |
 
 > CS 연락처(이메일)는 스토어 등록 정보와 게임 설정 창에 같은 주소로 넣어요.
 

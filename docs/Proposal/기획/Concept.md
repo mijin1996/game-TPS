@@ -1,8 +1,8 @@
 # 게임 컨셉 — game-TPS
 
-> 문서 세트: [목차](Proposal.md) · 기획: **컨셉** · [시스템-전투](System_Weapon.md) · [시스템-게임 흐름](System_GameFlow.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](Business.md) · [요구사항·로드맵](Requirements.md) · [Business Model](Monetization.md) · [서버·데이터](Server_Data.md) · [리소스](Resources.md) · [로그·지표](Analytics.md) · [QA·출시](QA_Release.md) · [라이브 운영](LiveOps.md) · [사업화·법무](Business_Legal.md) · [needFix](needFix.md)
+> 문서 세트: [목차](../Proposal.md) · 기획: **컨셉** · [시스템-전투](System_Weapon.md) · [시스템-게임 흐름](System_GameFlow.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](../대표/Business.md) · [요구사항·로드맵](Requirements.md) · [Business Model](Monetization.md) · [서버·데이터](../개발/Server_Data.md) · [리소스](../디자인/Resources.md) · [로그·지표](Analytics.md) · [QA·출시](../QA/QA_Release.md) · [라이브 운영](../운영/LiveOps.md) · [사업화·법무](../대표/Business_Legal.md) · [needFix](../needFix.md)
 
-> **문서 정보** · 문서 번호 `D01-CONCEPT` · 버전 v1.0 · 상태 `Review` · 담당 기획자 · 최종 수정 2026-11-21 · 관련 문서 [사업 검토](Business.md) · [요구사항·로드맵](Requirements.md)
+> **문서 정보** · 문서 번호 `D01-CONCEPT` · 버전 v1.0 · 상태 `Review` · 담당 기획자 · 최종 수정 2026-11-21 · 관련 문서 [사업 검토](../대표/Business.md) · [요구사항·로드맵](Requirements.md)
 
 **변경 이력**
 
@@ -203,4 +203,4 @@ flowchart LR
 |---|---|
 | 구현됨 | 이동 · 2단 점프 · 사격 · 재장전 · 스코프 · 수류탄 · 고블린 AI · 웨이브 · 아이템 4종 · 설정(음량 · 소리 · 일시정지) · 씬 이동 |
 | 구조 | 이벤트(`static event Action`)로 매니저 간 직접 호출 제거, 상속(`LivingEntity`) · 인터페이스(`IDamageable`, `IItem`, `IPop`, `IBlink`) · ScriptableObject 데이터 |
-| 다음 할 일 | [needFix](needFix.md) |
+| 다음 할 일 | [needFix](../needFix.md) |

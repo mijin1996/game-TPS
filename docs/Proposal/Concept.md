@@ -52,7 +52,6 @@ gantt
   연사 25발 :active, a3, 4800, 3000ms
   재장전 1.8초 :crit, a4, 7800, 1800ms
 ```
-> 읽는 법: 파란 막대 동안 쏘고, 빨간 막대(재장전) 동안은 무방비예요. 왼쪽 → 오른쪽이 시간이에요. 막대 = 이어지는 동안, 마름모 = 그 순간. 빨간 막대는 위험하거나 못 움직이는 시간이에요.
 
 **수류탄 (위에서 본 모습)**
 ```
@@ -81,7 +80,6 @@ mindmap
       2 ~ 7초마다 아이템
       5초 뒤 사라짐
 ```
-> 읽는 법: 가운데 = 게임, 가지 = 재미 요소, 끝 = 근거가 되는 수치예요.
 
 ## 코어 루프
 
@@ -114,7 +112,6 @@ flowchart TD
   classDef io fill:#5A4A9E,color:#fff,stroke:#5A4A9E
   classDef endc fill:#6B7280,color:#fff,stroke:#6B7280
 ```
-> 읽는 법: 초록에서 시작해 화살표를 따라 내려가요. 주황 마름모에서 Y(예) / N(아니오)으로 갈라져요.
 
 ## 화면 · 조작 요소
 위치는 씬에서 확인하세요. 아래는 코드 · 씬에 있는 요소 목록이에요.
@@ -175,7 +172,6 @@ flowchart LR
   classDef ui fill:#5A4A9E,color:#fff,stroke:#5A4A9E
   classDef data fill:#A33A33,color:#fff,stroke:#A33A33
 ```
-> 읽는 법: 왼쪽 초록 = 누르는 것 → 가운데 파랑 = 처리하는 스크립트 → 오른쪽 보라 = 바뀌는 화면이에요.
 
 **HUD - UIM**
  - scoreText   "Score : n"

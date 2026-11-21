@@ -1,14 +1,14 @@
 # 사업 검토 — game-TPS
 
-> 문서 세트: [목차](Proposal.md) · 기획: [컨셉](Concept.md) · [시스템-전투](System_Weapon.md) · [시스템-게임 흐름](System_GameFlow.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: **사업 검토** · [요구사항·로드맵](Requirements.md) · [BM·경제](Monetization.md) · [서버·데이터](Server_Data.md) · [리소스](Resources.md) · [로그·지표](Analytics.md) · [QA·출시](QA_Release.md) · [라이브 운영](LiveOps.md) · [사업화·법무](Business_Legal.md) · [needFix](needFix.md)
+> 문서 세트: [목차](Proposal.md) · 기획: [컨셉](Concept.md) · [시스템-전투](System_Weapon.md) · [시스템-게임 흐름](System_GameFlow.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: **사업 검토** · [요구사항·로드맵](Requirements.md) · [Business Model](Monetization.md) · [서버·데이터](Server_Data.md) · [리소스](Resources.md) · [로그·지표](Analytics.md) · [QA·출시](QA_Release.md) · [라이브 운영](LiveOps.md) · [사업화·법무](Business_Legal.md) · [needFix](needFix.md)
 
-> **문서 정보** · ID `D01-BIZ` · v1.0 · 상태 `Draft` · Owner ME (기획 · 개발) · 최종 수정 2026-11-21 · 관련 `D01-CONCEPT`, `D07-BM`, `D13-LEGAL`
+> **문서 정보** · 문서 번호 `D01-BIZ` · 버전 v1.0 · 상태 `Draft` · 담당 대표 · 기획자 · 최종 수정 2026-11-21 · 관련 문서 [컨셉](Concept.md) · [Business Model](Monetization.md) · [사업화·법무](Business_Legal.md)
 
 **변경 이력**
 
 | 버전 | 날짜 | 변경 내용 | 사유 | 결정자 | 영향 범위 |
 |---|---|---|---|---|---|
-| v1.0 | 2026-11-21 | 최초 작성 | 사내 문서 기준 v3 적용 | ME | 문서만 |
+| v1.0 | 2026-11-21 | 최초 작성 | — | 대표 | — |
 
 ---
 
@@ -19,16 +19,16 @@
 ## 2. 한 장 요약
 | 항목 | 내용 | 상태 |
 |---|---|---|
-| 게임 이름 | 미정 (프로젝트 이름 game-TPS) | ⚠️ 정할 것 → [F-01](needFix.md#8-사내-문서-기준-v3-적용-후-정할-것) |
+| 게임 이름 | 미정 (프로젝트 이름 game-TPS) | ⚠️ 정할 것 → [F-01](needFix.md#8-기획서-기준-적용-후-정할-것) |
 | 한 줄 정의 | 몰려오는 고블린 웨이브를 소총과 수류탄으로 막아내는 모바일 3인칭 웨이브 슈터 | 확정 ([컨셉](Concept.md)) |
 | 최종 방향 | 한 판 2 ~ 4분, "정비 → 소탕" 반복, 수류탄 · 소총 손맛 중심 | needFix §7 결정 |
 | 장르 | 3인칭 슈팅 · 웨이브 디펜스 (하이브리드 캐주얼 ~ 미드코어 경계) | 제안 |
 | 플랫폼 | Android 먼저 → iOS (모바일 조작이 이미 구현됨) | 제안 |
 | 타깃 | 짧은 시간 액션을 원하는 모바일 슈팅 유저, 출퇴근 · 쉬는 시간 플레이 | 확정 ([컨셉](Concept.md)) |
-| 수익 모델 | 보상형 광고 + 소액 인앱결제 (가챠 없음) → [BM · 경제](Monetization.md) | 제안 |
+| 수익 모델 | 보상형 광고 + 소액 인앱결제 (가챠 없음) → [Business Model](Monetization.md) | 제안 |
 
 ## 3. 경쟁작 비교
-> 이름 대신 **유형**으로 적었어요. 실제 게임 3개를 골라 스토어 평점 · 리뷰에서 장단점을 채워 주세요 → [F-02](needFix.md#8-사내-문서-기준-v3-적용-후-정할-것)
+> 이름 대신 **유형**으로 적었어요. 실제 게임 3개를 골라 스토어 평점 · 리뷰에서 장단점을 채워 주세요 → [F-02](needFix.md#8-기획서-기준-적용-후-정할-것)
 
 | 유형 | 보통의 BM | 강점 | 이 게임의 차별점 |
 |---|---|---|---|
@@ -51,7 +51,7 @@
 ## 5. 개략 예산 (1인 개발 기준)
 | 항목 | 내용 | 금액 |
 |---|---|---|
-| 인건비 | ME 1인 (기획 · 개발) | 기간 × 본인 기준 |
+| 인건비 | 1인 (기획 · 개발 겸임) | 기간 × 본인 기준 |
 | 에셋 | 현재 무료 · 구매 에셋 사용 → [리소스](Resources.md) 라이선스 확인 필요 | 추가 구매 시 기록 |
 | 스토어 등록 | Google Play 개발자 등록비(1회) · Apple Developer Program(연간) | 공식 페이지 금액 확인 |
 | 서버 | 출시 1차는 서버 없음 → 유료 재화 도입 시 BaaS ([서버 · 데이터](Server_Data.md)) | 무료 구간 → 사용량 비례 |
@@ -89,5 +89,5 @@ gantt
 ## 8. 결정 (Gate P0 → P1)
 - [ ] 게임 이름 확정 (F-01)
 - [ ] 경쟁작 3개 확정 (F-02)
-- [ ] 수익 모델 확정 ([BM](Monetization.md))
+- [ ] 수익 모델 확정 ([Business Model](Monetization.md))
 - [ ] 출시 목표일 확정

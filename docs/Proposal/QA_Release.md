@@ -1,14 +1,14 @@
 # QA · 출시 체크리스트 — game-TPS
 
-> 문서 세트: [목차](Proposal.md) · 기획: [컨셉](Concept.md) · [시스템-전투](System_Weapon.md) · [시스템-게임 흐름](System_GameFlow.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](Business.md) · [요구사항·로드맵](Requirements.md) · [BM·경제](Monetization.md) · [서버·데이터](Server_Data.md) · [리소스](Resources.md) · [로그·지표](Analytics.md) · **QA·출시** · [라이브 운영](LiveOps.md) · [사업화·법무](Business_Legal.md) · [needFix](needFix.md)
+> 문서 세트: [목차](Proposal.md) · 기획: [컨셉](Concept.md) · [시스템-전투](System_Weapon.md) · [시스템-게임 흐름](System_GameFlow.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](Business.md) · [요구사항·로드맵](Requirements.md) · [Business Model](Monetization.md) · [서버·데이터](Server_Data.md) · [리소스](Resources.md) · [로그·지표](Analytics.md) · **QA·출시** · [라이브 운영](LiveOps.md) · [사업화·법무](Business_Legal.md) · [needFix](needFix.md)
 
-> **문서 정보** · ID `D11-QA` · v1.0 · 상태 `Draft` · Owner ME (기획 · 개발) · 최종 수정 2026-11-21 · 관련 `D03-WEAPON`, `D03-FLOW`, `D13-LEGAL`
+> **문서 정보** · 문서 번호 `D11-QA` · 버전 v1.0 · 상태 `Draft` · 담당 QA · 최종 수정 2026-11-21 · 관련 문서 [시스템-전투](System_Weapon.md) · [시스템-게임 흐름](System_GameFlow.md) · [사업화·법무](Business_Legal.md)
 
 **변경 이력**
 
 | 버전 | 날짜 | 변경 내용 | 사유 | 결정자 | 영향 범위 |
 |---|---|---|---|---|---|
-| v1.0 | 2026-11-21 | 최초 작성 | 사내 문서 기준 v3 적용 | ME | 문서만 |
+| v1.0 | 2026-11-21 | 최초 작성 | — | QA | — |
 
 ---
 
@@ -39,11 +39,11 @@
 | `TC_011` | 플레이 중 홈 버튼 → 복귀 | 설정 창이 열린 채 멈춰 있음 | S-14 | 높음 |
 | `TC_012` | 게임오버 → Restart 10번 반복 | 크래시 · 메모리 증가 없음 | — | 치명 |
 | `TC_013` | 결제 직후 앱 강제 종료 → 재실행 | 상품 지급 | [서버](Server_Data.md) | 치명 |
-| `TC_014` | 비행기 모드에서 광고 버튼 | 비활성 · 안내 문구 | [BM](Monetization.md) §6 | 보통 |
+| `TC_014` | 비행기 모드에서 광고 버튼 | 비활성 · 안내 문구 | [Business Model](Monetization.md) §6 | 보통 |
 
 > 시스템 문서([전투](System_Weapon.md) §5 · [게임 흐름](System_GameFlow.md) §8)의 예외 표에 새 줄이 생기면 여기에도 TC를 추가해요.
 
-## 4. 기기 · 성능 기준 (정할 것 → [F-09](needFix.md#8-사내-문서-기준-v3-적용-후-정할-것))
+## 4. 기기 · 성능 기준 (정할 것 → [F-09](needFix.md#8-기획서-기준-적용-후-정할-것))
 | 항목 | 제안 |
 |---|---|
 | 최소 사양 기기 | 출시 3 ~ 4년 된 보급형 Android 1종 + 최신 폰 1종 |

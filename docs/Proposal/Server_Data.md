@@ -21,10 +21,10 @@
 | 키 | 타입 | 저장하는 곳 | 내용 |
 |---|---|---|---|
 | `Settings_MasterVolume` | float | `SettingsData` | 전체 음량 |
-| `Settings_SoundOn` | int (0 / 1) | `SettingsData` | 소리 켜기 · 끄기 (불러오기 누락 → needFix S-12) |
+| `Settings_SoundOn` | int (0 / 1) | `SettingsData` | 소리 켜기 · 끄기 (불러오기 누락 → needFix [S-12](needFix.md)) |
 | `SoundEnabled` · `MasterVolume` · `HoverScale` · `ClickScale` | int · float | UI 에셋 패키지 스크립트 | 버튼 효과음 · 크기 설정 (게임 설정과 **키가 따로** 있음 → [F-05](needFix.md#8-기획서-기준-적용-후-정할-것)) |
 
-> 점수 · 웨이브 · 코인은 저장하지 않아요 (needFix S-13).
+> 점수 · 웨이브 · 코인은 저장하지 않아요 (needFix [S-13](needFix.md)).
 
 ## 3. 저장 위치 · 판정 주체 (제안)
 | 데이터 | 1차 출시 (서버 없음) | 결제 도입 후 | 이유 |

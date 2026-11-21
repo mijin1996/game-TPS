@@ -1,14 +1,14 @@
 # 서버 · 데이터 연동 — game-TPS
 
-> 문서 세트: [목차](Proposal.md) · 기획: [컨셉](Concept.md) · [시스템-전투](System_Weapon.md) · [시스템-게임 흐름](System_GameFlow.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](Business.md) · [요구사항·로드맵](Requirements.md) · [BM·경제](Monetization.md) · **서버·데이터** · [리소스](Resources.md) · [로그·지표](Analytics.md) · [QA·출시](QA_Release.md) · [라이브 운영](LiveOps.md) · [사업화·법무](Business_Legal.md) · [needFix](needFix.md)
+> 문서 세트: [목차](Proposal.md) · 기획: [컨셉](Concept.md) · [시스템-전투](System_Weapon.md) · [시스템-게임 흐름](System_GameFlow.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](Business.md) · [요구사항·로드맵](Requirements.md) · [Business Model](Monetization.md) · **서버·데이터** · [리소스](Resources.md) · [로그·지표](Analytics.md) · [QA·출시](QA_Release.md) · [라이브 운영](LiveOps.md) · [사업화·법무](Business_Legal.md) · [needFix](needFix.md)
 
-> **문서 정보** · ID `D08-SERVER` · v1.0 · 상태 `Draft` · Owner ME (기획 · 개발) · 최종 수정 2026-11-21 · 관련 `D03-FLOW`, `D07-BM`
+> **문서 정보** · 문서 번호 `D08-SERVER` · 버전 v1.0 · 상태 `Draft` · 담당 서버 개발자 · 최종 수정 2026-11-21 · 관련 문서 [시스템-게임 흐름](System_GameFlow.md) · [Business Model](Monetization.md)
 
 **변경 이력**
 
 | 버전 | 날짜 | 변경 내용 | 사유 | 결정자 | 영향 범위 |
 |---|---|---|---|---|---|
-| v1.0 | 2026-11-21 | 최초 작성 | 사내 문서 기준 v3 적용 | ME | 문서만 |
+| v1.0 | 2026-11-21 | 최초 작성 | — | 서버 개발자 | — |
 
 ---
 
@@ -22,7 +22,7 @@
 |---|---|---|---|
 | `Settings_MasterVolume` | float | `SettingsData` | 전체 음량 |
 | `Settings_SoundOn` | int (0 / 1) | `SettingsData` | 소리 켜기 · 끄기 (불러오기 누락 → needFix S-12) |
-| `SoundEnabled` · `MasterVolume` · `HoverScale` · `ClickScale` | int · float | UI 에셋 패키지 스크립트 | 버튼 효과음 · 크기 설정 (게임 설정과 **키가 따로** 있음 → [F-05](needFix.md#8-사내-문서-기준-v3-적용-후-정할-것)) |
+| `SoundEnabled` · `MasterVolume` · `HoverScale` · `ClickScale` | int · float | UI 에셋 패키지 스크립트 | 버튼 효과음 · 크기 설정 (게임 설정과 **키가 따로** 있음 → [F-05](needFix.md#8-기획서-기준-적용-후-정할-것)) |
 
 > 점수 · 웨이브 · 코인은 저장하지 않아요 (needFix S-13).
 
@@ -35,7 +35,7 @@
 | 광고 제거 구매 여부 | 스토어 구매 기록 조회 | 스토어 + 서버 | 재설치 · 기기 변경 시 복원 |
 | 판 결과 (점수 · 코인 획득) | 기기 | **서버 검증** | 판 시간 · 처치 수가 비정상이면 보상 거부 |
 
-> **원칙:** 유료 재화 · 결제가 들어가는 순간부터 서버가 필요해요. 1인 개발이면 직접 서버 대신 **BaaS**(Firebase · PlayFab · Unity Gaming Services 등)도 선택지예요 → 무엇을 쓸지 [F-06](needFix.md#8-사내-문서-기준-v3-적용-후-정할-것)
+> **원칙:** 유료 재화 · 결제가 들어가는 순간부터 서버가 필요해요. 1인 개발이면 직접 서버 대신 **BaaS**(Firebase · PlayFab · Unity Gaming Services 등)도 선택지예요 → 무엇을 쓸지 [F-06](needFix.md#8-기획서-기준-적용-후-정할-것)
 
 **[흐름도] 판 끝 코인 지급 (서버 도입 후, 제안)**
 ```mermaid
@@ -87,5 +87,5 @@ flowchart TD
 | 서버 점검 · 강제 업데이트 | 시작 시 버전 확인 → 낮으면 스토어로 안내 |
 
 ## 6. 결정할 것
-- 서버를 언제 붙일지: 1차 출시부터 vs 인앱결제 도입 때 → [F-06](needFix.md#8-사내-문서-기준-v3-적용-후-정할-것)
-- 설정 키 통일 (`Settings_*` 하나로) → [F-05](needFix.md#8-사내-문서-기준-v3-적용-후-정할-것)
+- 서버를 언제 붙일지: 1차 출시부터 vs 인앱결제 도입 때 → [F-06](needFix.md#8-기획서-기준-적용-후-정할-것)
+- 설정 키 통일 (`Settings_*` 하나로) → [F-05](needFix.md#8-기획서-기준-적용-후-정할-것)

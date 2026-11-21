@@ -31,6 +31,18 @@
 | 문서 번호 | `D` + 문서 순서 + 이름 (예: `D08-SERVER` = 8번 서버 · 데이터 문서). 번호 ↔ 파일은 아래 표에서 찾아요 |
 | 버전 | v1.0 = 첫 정식판, 내용을 고칠 때마다 v1.1 · v1.2 … |
 | 담당 | 그 문서를 책임지고 확인하는 직무 (대표 · 기획자 · PM · 개발자 · 디자이너 · 아티스트 · QA · 운영 담당) |
+
+**번호 찾는 곳** — 문서 안의 번호를 누르면 그 번호가 정해진 문서로 가요.
+
+| 번호 모양 | 뜻 | 정해진 문서 |
+|---|---|---|
+| `REQ_###` | 요구사항 (할 일) | [Requirements.md](Requirements.md) |
+| `S-##` | 고칠 점 · 제안 (게임 기존 목록) | [needFix.md](needFix.md) |
+| `F-##` | 정할 것 | [needFix.md](needFix.md) |
+| `TC_###` | 테스트 케이스 | [QA_Release.md](QA_Release.md) |
+| `PRD_…` · `PLAN_…` · `AD_…` | 상품 · 요금제 · 광고 자리 | [Monetization.md](Monetization.md) |
+| `evt_…` | 로그 이벤트 | [Analytics.md](Analytics.md) |
+| `MDL_…` · `SFX_…` · `FONT_…` 등 | 리소스 (그림 · 소리 · 폰트) | [Resources.md](Resources.md) |
 | 상태 | `Draft`(작성 중) → `Review`(검토 중) → `Confirmed`(구현 대상) → `Deprecated`(폐기). **Confirmed만 구현해요** |
 | 변경 이력 | 문서 정보 바로 아래. 무엇이 · 왜 · 어디에 영향이 가는지 |
 | ID | 한 번 정하면 바꾸지 않아요. 코드 · JSON · 로그 · 스토어 상품이 같은 ID를 써요 |

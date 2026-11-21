@@ -1,14 +1,14 @@
 # 리소스 (아트 · 사운드) 명세 — game-TPS
 
-> 문서 세트: [목차](Proposal.md) · 기획: [컨셉](Concept.md) · [시스템-전투](System_Weapon.md) · [시스템-게임 흐름](System_GameFlow.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](Business.md) · [요구사항·로드맵](Requirements.md) · [BM·경제](Monetization.md) · [서버·데이터](Server_Data.md) · **리소스** · [로그·지표](Analytics.md) · [QA·출시](QA_Release.md) · [라이브 운영](LiveOps.md) · [사업화·법무](Business_Legal.md) · [needFix](needFix.md)
+> 문서 세트: [목차](Proposal.md) · 기획: [컨셉](Concept.md) · [시스템-전투](System_Weapon.md) · [시스템-게임 흐름](System_GameFlow.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](Business.md) · [요구사항·로드맵](Requirements.md) · [Business Model](Monetization.md) · [서버·데이터](Server_Data.md) · **리소스** · [로그·지표](Analytics.md) · [QA·출시](QA_Release.md) · [라이브 운영](LiveOps.md) · [사업화·법무](Business_Legal.md) · [needFix](needFix.md)
 
-> **문서 정보** · ID `D09-RES` · v1.0 · 상태 `Draft` · Owner ME (기획 · 개발) · 최종 수정 2026-11-21 · 관련 `D04-ENTITY`, `D13-LEGAL`
+> **문서 정보** · 문서 번호 `D09-RES` · 버전 v1.0 · 상태 `Draft` · 담당 아티스트 · 사운드 디자이너 · 최종 수정 2026-11-21 · 관련 문서 [전투·개체](Combat_Entity.md) · [사업화·법무](Business_Legal.md)
 
 **변경 이력**
 
 | 버전 | 날짜 | 변경 내용 | 사유 | 결정자 | 영향 범위 |
 |---|---|---|---|---|---|
-| v1.0 | 2026-11-21 | 최초 작성 | 사내 문서 기준 v3 적용 | ME | 문서만 |
+| v1.0 | 2026-11-21 | 최초 작성 | — | 아티스트 | — |
 
 ---
 
@@ -58,7 +58,7 @@
 | `FONT_DMG` | `Oswald-VariableFont_wght.ttf` | ✅ SIL OFL 1.1 |
 | (예제) | `TextMesh Pro/Examples & Extras/Fonts/*` | 빌드에 안 쓰면 삭제 권장 |
 
-> 같은 파일이 `Audios/`와 `tps에 필요 재료/Clip*`에 **두 벌** 있어요. 쓰는 쪽만 남기면 빌드 용량 · 관리가 줄어요 → [F-07](needFix.md#8-사내-문서-기준-v3-적용-후-정할-것)
+> 같은 파일이 `Audios/`와 `tps에 필요 재료/Clip*`에 **두 벌** 있어요. 쓰는 쪽만 남기면 빌드 용량 · 관리가 줄어요 → [F-07](needFix.md#8-기획서-기준-적용-후-정할-것)
 
 ## 3. 새로 필요한 리소스 (needFix 제안 기준)
 | 리소스 ID | 종류 | 규격 | 프레임 · 길이 | 관련 | 담당 | 상태 |
@@ -67,7 +67,7 @@
 | `ANI_GOB_ATK_WINDUP` | 공격 예고 동작 | 기존 리그 | 0.3초 | S-17 | 미정 | 대기 |
 | `FX_GOB_HITFLASH` | 피격 흰색 번쩍임 | 머티리얼 · 셰이더 | 0.1초 | S-17 | ME | 대기 |
 | `UI_CLEAR` | 클리어 창 | 1080 × 1920 기준 | — | S-01 | 미정 | 대기 |
-| `UI_SHOP_*` | 업그레이드 상점 아이콘 3종 | 256 × 256 PNG | — | [BM](Monetization.md) | 미정 | 대기 |
+| `UI_SHOP_*` | 업그레이드 상점 아이콘 3종 | 256 × 256 PNG | — | [Business Model](Monetization.md) | 미정 | 대기 |
 | `SFX_MAG_EMPTY` | 빈 탄창 소리 | WAV · 0.2초 이내 | — | S-04 | 미정 | 대기 |
 | `STORE_*` | 스토어 아이콘 · 스크린샷 · 피처 그래픽 | 스토어 규격 | — | [QA · 출시](QA_Release.md) | 미정 | 대기 |
 

@@ -1,6 +1,6 @@
 # needFix — 고칠 점 · 부족한 점 · 제안
 
-> 문서 세트: [목차](Proposal.md) · 기획: [컨셉](기획/Concept.md) · [시스템-전투](기획/System_Weapon.md) · [시스템-게임 흐름](기획/System_GameFlow.md) · [전투·개체](기획/Combat_Entity.md) · [레벨 디자인](기획/LevelDesign.md) · [밸런스](기획/Balance.md) · 사업·운영: [사업 검토](대표/Business.md) · [요구사항·로드맵](기획/Requirements.md) · [Business Model](기획/Monetization.md) · [서버·데이터](개발/Server_Data.md) · [리소스](디자인/Resources.md) · [로그·지표](기획/Analytics.md) · [QA·출시](QA/QA_Release.md) · [라이브 운영](운영/LiveOps.md) · [사업화·법무](대표/Business_Legal.md) · **needFix**
+> 문서 세트: [목차](Index.md) · 기획: [컨셉](기획/Concept.md) · [시스템-전투](기획/System_Weapon.md) · [시스템-게임 흐름](기획/System_GameFlow.md) · [전투·개체](기획/Combat_Entity.md) · [레벨 디자인](기획/LevelDesign.md) · [밸런스](기획/Balance.md) · 사업·운영: [사업 검토](대표/Business.md) · [요구사항·로드맵](기획/Requirements.md) · [Business Model](기획/Monetization.md) · [서버·데이터](개발/Server_Data.md) · [리소스](디자인/Resources.md) · [로그·지표](기획/Analytics.md) · [QA·출시](QA/QA_Release.md) · [라이브 운영](운영/LiveOps.md) · [사업화·법무](대표/Business_Legal.md) · **needFix**
 > 컨셉 ~ 밸런스 문서는 현재 구현만 담고, 바꾸자는 내용은 모두 여기에 모았어요. 반영하면 상태를 **완료**로 바꾸고 컨셉 ~ 밸런스 문서의 값을 고쳐 주세요. 사업 · 운영 문서(계획 · 초안)에서 나온 **정할 것**은 8절에 있어요.
 
 > **문서 정보** · 문서 번호 `D00-FIX` · 버전 v1.2 · 상태 `Review` · 담당 기획자 · 최종 수정 2026-11-21
@@ -174,7 +174,7 @@ xychart-beta
 | 게임 정식 이름이 없음 | 문서 · 빌드 · 스토어에서 부를 이름이 없음 (S-20) | 이름 확정 후 문서 · 프로젝트 이름 통일 | ⏳ 대기 — F-01 |
 | 결정 로그 (가이드 0-5) 없음 | 결정 이유가 흩어져 사라짐 | 결정 로그 문서 | ✅ 반영 — [결정 로그](Decisions.md) |
 | 용어집 (가이드 0-6) 없음 | 같은 것을 다른 말로 부름 | 용어집 문서 | ✅ 반영 — [용어집](Glossary.md) |
-| 단계별 Gate 체크리스트 (P0 → 출시) | 사업 검토에 P0 → P1만 있었음 | 전체 단계 Gate | ✅ 작성 — [목차](Proposal.md) 맨 아래 · ❌ P0 → P1부터 미통과 |
+| 단계별 Gate 체크리스트 (P0 → 출시) | 사업 검토에 P0 → P1만 있었음 | 전체 단계 Gate | ✅ 작성 — [목차](Index.md) 맨 아래 · ❌ P0 → P1부터 미통과 |
 
 ## 5. 기획 · 흐름 평가와 방향
 

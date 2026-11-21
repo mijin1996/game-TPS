@@ -57,7 +57,6 @@ flowchart LR
   classDef ui fill:#5A4A9E,color:#fff,stroke:#5A4A9E
   classDef data fill:#A33A33,color:#fff,stroke:#A33A33
 ```
-> 읽는 법: 상자 = 씬 · 스크립트 · 오브젝트, 화살표 위 글 = 보내는 신호나 하는 일이에요. ①②③은 일어나는 순서예요.
 
 ## 1. 화면 흐름
 빌드 씬: `0 Intro` → `1 Play` (`Main` 씬은 빌드에서 꺼져 있음)
@@ -81,7 +80,6 @@ stateDiagram-v2
   class Play play
   class GameOver fail
 ```
-> 읽는 법: 상자 = 상태, 화살표 위 글 = 상태가 바뀌는 조건이에요. 검은 점에서 시작해요.
 
 **[와이어프레임] 플레이 화면 (HUD 기준 1280 × 720)**
 ```
@@ -119,7 +117,6 @@ stateDiagram-v2
 | H | 점수 | "Score : n" | `ScoreText` · 522 ~ 752, 63 ~ 143 |
 | I | 조준점 | 화면 가운데 | `Crosshair` · 632.5 ~ 647.5, 352.5 ~ 367.5 |
 | J | 설정 | 설정 창 (열면 일시정지) | `Settings` · 561 ~ 661, 268 ~ 368 |
-> 읽는 법: 테두리 = 화면 전체, 점선 상자 = 요소가 차지하는 영역, 글자 = 아래 표의 요소예요. 위치는 씬의 RectTransform 값으로 계산했어요 (화면 비율이 기준 해상도와 다르면 조금 달라져요).
 
 화면 나머지 영역을 드래그하면 시점이 돌아가요 (`CamLook`). 체력바는 플레이어 머리 위에 따로 떠 있어요 (`HealthCanvas`).
 
@@ -143,7 +140,6 @@ stateDiagram-v2
   class Paused stop
   class GameOver fail
 ```
-> 읽는 법: 상자 = 상태, 화살표 위 글 = 상태가 바뀌는 조건이에요. 검은 점에서 시작해요.
 
 | 상태 | 입력 | 고블린 | 점수 | 시간 |
 |---|---|---|---|---|
@@ -194,7 +190,6 @@ flowchart TD
   classDef io fill:#5A4A9E,color:#fff,stroke:#5A4A9E
   classDef endc fill:#6B7280,color:#fff,stroke:#6B7280
 ```
-> 읽는 법: 초록에서 시작해 화살표를 따라 내려가요. 주황 마름모에서 Y(예) / N(아니오)으로 갈라져요.
 
 ```
 now : [ W1 ......... ][ W2 ............ ][ W3 ...      (웨이브 사이 대기 없음)
@@ -231,7 +226,6 @@ flowchart TD
   classDef io fill:#5A4A9E,color:#fff,stroke:#5A4A9E
   classDef endc fill:#6B7280,color:#fff,stroke:#6B7280
 ```
-> 읽는 법: 초록에서 시작해 화살표를 따라 내려가요. 주황 마름모에서 Y(예) / N(아니오)으로 갈라져요.
 
 > 세부 조건(코드 기준)은 [부록 A-2](#a-2-게임오버-로직)에 있어요.
 
@@ -262,7 +256,6 @@ flowchart TD
   classDef io fill:#5A4A9E,color:#fff,stroke:#5A4A9E
   classDef endc fill:#6B7280,color:#fff,stroke:#6B7280
 ```
-> 읽는 법: 초록에서 시작해 화살표를 따라 내려가요. 주황 마름모에서 Y(예) / N(아니오)으로 갈라져요.
 
 요소: X(닫기) · 음량 슬라이더 + "70%" 글자 · 소리 버튼(아이콘 on/off) · 나가기 버튼
 
@@ -293,7 +286,6 @@ flowchart TD
   classDef io fill:#5A4A9E,color:#fff,stroke:#5A4A9E
   classDef endc fill:#6B7280,color:#fff,stroke:#6B7280
 ```
-> 읽는 법: 초록에서 시작해 화살표를 따라 내려가요. 주황 마름모에서 Y(예) / N(아니오)으로 갈라져요.
 
 > 세부 조건(코드 기준)은 [부록 A-4](#a-4-씬-이동-로직-scenechange)에 있어요.
 
@@ -355,7 +347,6 @@ flowchart TB
   classDef bad fill:#A33A33,color:#fff,stroke:#A33A33
   classDef todo fill:#6B7280,color:#fff,stroke:#6B7280
 ```
-> 읽는 법: 주황 = 이런 상황이면? → 초록 ✅ 코드가 이미 처리함 / 빨강 ⚠️ 문제 (괄호 = needFix 번호) / 회색 💡 고치면 좋은 점. 아래 표에 같은 번호로 자세히 있어요.
 
 | # | 상황 | 현재 동작 | 상태 |
 |---|---|---|---|
@@ -570,7 +561,6 @@ classDiagram
   style GunData fill:#A33A33,color:#fff,stroke:#A33A33
   style GoblinData fill:#A33A33,color:#fff,stroke:#A33A33
 ```
-> 읽는 법: 색은 구성도와 같아요 (주황 = 인터페이스, 파랑 = 스크립트, 회색 = 게임 오브젝트, 보라 = 화면, 빨강 = 데이터). **◁— extends** = 상속 (자식 → 부모), **◁┄ implements** = 인터페이스 구현, **→ reference** = 필드로 가지고 있음, **┄> rely on** = 잠깐 불러 쓰거나 이벤트를 구독함. 화살표는 "누가 누구를 알고 있나" 방향이라, 이벤트는 **듣는 쪽 → 보내는 쪽**으로 그려져요 (알림 자체는 반대로 흘러요).
 
 ### B-2. 전체 흐름 (한 장 요약)
 
@@ -606,7 +596,6 @@ flowchart LR
   classDef data fill:#A33A33,color:#fff,stroke:#A33A33
   classDef itf fill:#EE7E1C,color:#fff,stroke:#EE7E1C
 ```
-> 읽는 법: 왼쪽 입력에서 시작해 화면 · 데이터 쪽으로 흘러요. 상속 · 인터페이스는 [B-1](#b-1-핵심-구조), 이벤트 전체는 [§7](#7-이벤트-연결표)에 있어요. **실선 →** = 직접 부름 · 값 전달, **점선 ┄>** = 이벤트(Action) 알림, **굵은 선 ⇒** = 인터페이스(주황 🔌)로 부름, **화살표 없는 선 —** = 상속 · 구현이에요.
 
 ### B-3. 대표 흐름 따라가기
 
@@ -639,4 +628,3 @@ sequenceDiagram
     GS-->>UI: onEnemyCountChanged(웨이브, 남은 수)
   end
 ```
-> 읽는 법: 위 → 아래가 시간 순서, 번호 = 일어나는 차례예요. **실선 화살표** = 직접 부름, **점선 화살표** = 이벤트(Action) 알림, 자기 자신으로 돌아오는 화살표 = 안에서 처리, **alt 상자** = 조건이 맞을 때만 일어나는 부분이에요.

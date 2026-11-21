@@ -64,7 +64,6 @@ flowchart TD
   classDef io fill:#5A4A9E,color:#fff,stroke:#5A4A9E
   classDef endc fill:#6B7280,color:#fff,stroke:#6B7280
 ```
-> 읽는 법: 초록에서 시작해 화살표를 따라 내려가요. 주황 마름모에서 Y(예) / N(아니오)으로 갈라져요. 서버가 응답하지 않으면 결과를 버리지 않고 다음에 다시 보내요.
 
 ## 4. API 목록 (서버 도입 시, 제안)
 | API ID | 기능 | Method | 요청 | 응답 | 에러 → 클라 처리 |

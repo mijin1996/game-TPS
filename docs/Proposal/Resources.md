@@ -58,7 +58,7 @@
 | `FONT_DMG` | `Oswald-VariableFont_wght.ttf` | ✅ SIL OFL 1.1 |
 | (예제) | `TextMesh Pro/Examples & Extras/Fonts/*` | 빌드에 안 쓰면 삭제 권장 |
 
-> 같은 파일이 `Audios/`와 `tps에 필요 재료/Clip*`에 **두 벌** 있어요. 쓰는 쪽만 남기면 빌드 용량 · 관리가 줄어요 → [F-07](needFix.md#8-기획서-기준-적용-후-정할-것)
+> 같은 파일이 `Audios/`와 `tps에 필요 재료/Clip*`에 **두 벌** 있어요. 쓰는 쪽만 남기면 빌드 용량 · 관리가 줄어요 → [F-07](needFix.md#8-정할-것)
 
 ## 3. 새로 필요한 리소스 (needFix 제안 기준)
 | 리소스 ID | 종류 | 규격 | 프레임 · 길이 | 관련 | 담당 | 상태 |

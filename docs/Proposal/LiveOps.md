@@ -1,14 +1,14 @@
 # 라이브 운영 — game-TPS
 
-> 문서 세트: [목차](Proposal.md) · 기획: [컨셉](Concept.md) · [시스템-전투](System_Weapon.md) · [시스템-게임 흐름](System_GameFlow.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](Business.md) · [요구사항·로드맵](Requirements.md) · [BM·경제](Monetization.md) · [서버·데이터](Server_Data.md) · [리소스](Resources.md) · [로그·지표](Analytics.md) · [QA·출시](QA_Release.md) · **라이브 운영** · [사업화·법무](Business_Legal.md) · [needFix](needFix.md)
+> 문서 세트: [목차](Proposal.md) · 기획: [컨셉](Concept.md) · [시스템-전투](System_Weapon.md) · [시스템-게임 흐름](System_GameFlow.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](Business.md) · [요구사항·로드맵](Requirements.md) · [Business Model](Monetization.md) · [서버·데이터](Server_Data.md) · [리소스](Resources.md) · [로그·지표](Analytics.md) · [QA·출시](QA_Release.md) · **라이브 운영** · [사업화·법무](Business_Legal.md) · [needFix](needFix.md)
 
-> **문서 정보** · ID `D12-LIVE` · v1.0 · 상태 `Draft` · Owner ME (기획 · 개발) · 최종 수정 2026-11-21 · 관련 `D10-LOG`
+> **문서 정보** · 문서 번호 `D12-LIVE` · 버전 v1.0 · 상태 `Draft` · 담당 운영 담당 · 최종 수정 2026-11-21 · 관련 문서 [로그·지표](Analytics.md)
 
 **변경 이력**
 
 | 버전 | 날짜 | 변경 내용 | 사유 | 결정자 | 영향 범위 |
 |---|---|---|---|---|---|
-| v1.0 | 2026-11-21 | 최초 작성 | 사내 문서 기준 v3 적용 | ME | 문서만 |
+| v1.0 | 2026-11-21 | 최초 작성 | — | 운영 담당 | — |
 
 ---
 
@@ -31,7 +31,7 @@
 | 크래시율 | 1% 초과 | 핫픽스 |
 | 광고 시청률 | 20% 미만 | 보상 크기 · 버튼 위치 점검 |
 
-> 밸런스만 바꿀 때는 JSON만 고쳐서 내보낼 수 있게, 나중에 **원격 설정**(Remote Config) 도입을 검토해요 → [F-06](needFix.md#8-사내-문서-기준-v3-적용-후-정할-것)
+> 밸런스만 바꿀 때는 JSON만 고쳐서 내보낼 수 있게, 나중에 **원격 설정**(Remote Config) 도입을 검토해요 → [F-06](needFix.md#8-기획서-기준-적용-후-정할-것)
 
 ## 4. 이벤트 캘린더 (예시)
 | 이벤트 | 기간 | 규칙 · 보상 | 필요한 작업 |

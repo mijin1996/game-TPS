@@ -27,15 +27,15 @@
 | `evt_session_start` | 앱 시작 (`Intro` 씬) | first_open(bool) | DAU · D1 · D7 재접속률 |
 | `evt_run_start` | `Play` 씬 시작 | run_id, upgrade_levels | 하루 판 수 |
 | `evt_wave_start` | `GoblinSpawn.onWaveStarted` | run_id, wave, enemy_count | 웨이브별 도달률 (어디서 막히는지) |
-| `evt_run_end` | `GM.onGameOver` · 클리어 | run_id, result(over / clear), wave, score, play_sec, kills, coin_earned | 한 판 평균 시간 (S-21) · 코인 수급 ([Business Model](Monetization.md) §3) |
-| `evt_shot_stats` | 판 끝 1회 | run_id, shots, hits | 실제 명중률 (S-21) → 탄약 수급 조정 |
+| `evt_run_end` | `GM.onGameOver` · 클리어 | run_id, result(over / clear), wave, score, play_sec, kills, coin_earned | 한 판 평균 시간 ([S-21](needFix.md)) · 코인 수급 ([Business Model](Monetization.md) §3) |
+| `evt_shot_stats` | 판 끝 1회 | run_id, shots, hits | 실제 명중률 ([S-21](needFix.md)) → 탄약 수급 조정 |
 | `evt_grenade_use` | `PlayerGrenade` 투척 | run_id, wave, kills_by_grenade | 수류탄 손맛 (한 번에 몇 마리) |
 | `evt_item_pickup` | `IItem.Use` | item_id, wave | 아이템 수급 · 놓치는 비율 |
 | `evt_upgrade_buy` | 상점 구매 | upgrade_id, level, coin_after | 업그레이드 속도 |
-| `evt_ad_offer` · `evt_ad_reward` | 광고 버튼 노출 · 보상 지급 | placement(AD_REVIVE / AD_COIN_X2), wave | 지면별 시청률 |
+| `evt_ad_offer` · `evt_ad_reward` | 광고 버튼 노출 · 보상 지급 | placement([AD_REVIVE](Monetization.md) / [AD_COIN_X2](Monetization.md)), wave | 지면별 시청률 |
 | `evt_purchase` | 결제 완료 | product_id, price, currency | 결제 전환율 · ARPPU |
 | `evt_settings_change` | 설정 저장 | sound_on, volume | 소리 끄는 비율 |
-| `evt_perf_drop` | FPS가 3초 이상 25 아래 | wave, enemy_alive, device_model | 성능 문제 기기 (S-11) |
+| `evt_perf_drop` | FPS가 3초 이상 25 아래 | wave, enemy_alive, device_model | 성능 문제 기기 ([S-11](needFix.md)) |
 
 ## 4. 지표 ↔ 이벤트 연결
 | 지표 ([사업 검토](Business.md) §4) | 계산 |

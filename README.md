@@ -62,5 +62,5 @@
 ---
 
 ## 📁 문서
-- [`Docs/Proposal/Proposal.md`](Docs/Proposal/Proposal.md) — 기획서 세트(컨셉 · 시스템 · 전투 · 레벨 · 밸런스) · 시뮬레이션
-- [`Docs/MeMemo.md`](Docs/MeMemo.md) — 코루틴→UniTask, 델타타임·랜덤 정리 메모
+- [`docs/Proposal/Proposal.md`](docs/Proposal/Proposal.md) — 기획서 (컨셉 ~ 사업화 · 법무) · [needFix](docs/Proposal/needFix.md)
+- [`docs/MeMemo.md`](docs/MeMemo.md) — 코루틴→UniTask, 델타타임·랜덤 정리 메모

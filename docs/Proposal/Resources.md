@@ -63,12 +63,12 @@
 ## 3. 새로 필요한 리소스 (needFix 제안 기준)
 | 리소스 ID | 종류 | 규격 | 프레임 · 길이 | 관련 | 담당 | 상태 |
 |---|---|---|---|---|---|---|
-| `MDL_GOB_RUNNER` · `MDL_GOB_BRUTE` | 고블린 변형 (색 · 크기 차이로도 가능) | 기존 고블린 리그 재사용 | — | S-16 | 미정 | 대기 |
-| `ANI_GOB_ATK_WINDUP` | 공격 예고 동작 | 기존 리그 | 0.3초 | S-17 | 미정 | 대기 |
-| `FX_GOB_HITFLASH` | 피격 흰색 번쩍임 | 머티리얼 · 셰이더 | 0.1초 | S-17 | ME | 대기 |
-| `UI_CLEAR` | 클리어 창 | 1080 × 1920 기준 | — | S-01 | 미정 | 대기 |
+| `MDL_GOB_RUNNER` · `MDL_GOB_BRUTE` | 고블린 변형 (색 · 크기 차이로도 가능) | 기존 고블린 리그 재사용 | — | [S-16](needFix.md) | 미정 | 대기 |
+| `ANI_GOB_ATK_WINDUP` | 공격 예고 동작 | 기존 리그 | 0.3초 | [S-17](needFix.md) | 미정 | 대기 |
+| `FX_GOB_HITFLASH` | 피격 흰색 번쩍임 | 머티리얼 · 셰이더 | 0.1초 | [S-17](needFix.md) | ME | 대기 |
+| `UI_CLEAR` | 클리어 창 | 1080 × 1920 기준 | — | [S-01](needFix.md) | 미정 | 대기 |
 | `UI_SHOP_*` | 업그레이드 상점 아이콘 3종 | 256 × 256 PNG | — | [Business Model](Monetization.md) | 미정 | 대기 |
-| `SFX_MAG_EMPTY` | 빈 탄창 소리 | WAV · 0.2초 이내 | — | S-04 | 미정 | 대기 |
+| `SFX_MAG_EMPTY` | 빈 탄창 소리 | WAV · 0.2초 이내 | — | [S-04](needFix.md) | 미정 | 대기 |
 | `STORE_*` | 스토어 아이콘 · 스크린샷 · 피처 그래픽 | 스토어 규격 | — | [QA · 출시](QA_Release.md) | 미정 | 대기 |
 
 ## 4. 외주 · 무료 에셋 규칙

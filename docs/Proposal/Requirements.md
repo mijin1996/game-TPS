@@ -1,14 +1,14 @@
 # 요구사항 · 로드맵 — game-TPS
 
-> 문서 세트: [목차](Proposal.md) · 기획: [컨셉](Concept.md) · [시스템-전투](System_Weapon.md) · [시스템-게임 흐름](System_GameFlow.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](Business.md) · **요구사항·로드맵** · [BM·경제](Monetization.md) · [서버·데이터](Server_Data.md) · [리소스](Resources.md) · [로그·지표](Analytics.md) · [QA·출시](QA_Release.md) · [라이브 운영](LiveOps.md) · [사업화·법무](Business_Legal.md) · [needFix](needFix.md)
+> 문서 세트: [목차](Proposal.md) · 기획: [컨셉](Concept.md) · [시스템-전투](System_Weapon.md) · [시스템-게임 흐름](System_GameFlow.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](Business.md) · **요구사항·로드맵** · [Business Model](Monetization.md) · [서버·데이터](Server_Data.md) · [리소스](Resources.md) · [로그·지표](Analytics.md) · [QA·출시](QA_Release.md) · [라이브 운영](LiveOps.md) · [사업화·법무](Business_Legal.md) · [needFix](needFix.md)
 
-> **문서 정보** · ID `D02-REQ` · v1.0 · 상태 `Draft` · Owner ME (기획 · 개발) · 최종 수정 2026-11-21 · 관련 `needFix`
+> **문서 정보** · 문서 번호 `D02-REQ` · 버전 v1.0 · 상태 `Draft` · 담당 기획자 · 최종 수정 2026-11-21 · 관련 문서 [needFix](needFix.md)
 
 **변경 이력**
 
 | 버전 | 날짜 | 변경 내용 | 사유 | 결정자 | 영향 범위 |
 |---|---|---|---|---|---|
-| v1.0 | 2026-11-21 | 최초 작성 | 사내 문서 기준 v3 적용 | ME | 문서만 |
+| v1.0 | 2026-11-21 | 최초 작성 | — | 기획자 | — |
 
 ---
 
@@ -40,9 +40,9 @@
 | `REQ_106` | 고블린 3종 (일반 · 날쌘 · 덩치) + 공격 예고 · 피격 반응 | Must | 베타 | 4일 | S-16 · S-17 | 대기 |
 | `REQ_107` | 웨이브 곡선 간소화 (한 판 2 ~ 4분) | Must | 베타 | 1일 + 테스트 | S-15 · S-21 | 대기 |
 | `REQ_108` | 최고 점수 · 웨이브 저장 | Must | 베타 | 0.5일 | S-13 | 대기 |
-| `REQ_109` | 영구 업그레이드 2 ~ 3종 (코인 → 남는 재화) | Should | 베타 | 3일 | S-18 · [BM](Monetization.md) | 대기 |
-| `REQ_110` | 보상형 광고 (부활 1회 · 코인 2배) | Should | 베타 | 2일 | [BM](Monetization.md) | 대기 |
-| `REQ_111` | 광고 제거 · 스타터 팩 인앱결제 | Should | 출시 | 3일 | [BM](Monetization.md) · [서버](Server_Data.md) | 대기 |
+| `REQ_109` | 영구 업그레이드 2 ~ 3종 (코인 → 남는 재화) | Should | 베타 | 3일 | S-18 · [Business Model](Monetization.md) | 대기 |
+| `REQ_110` | 보상형 광고 (부활 1회 · 코인 2배) | Should | 베타 | 2일 | [Business Model](Monetization.md) | 대기 |
+| `REQ_111` | 광고 제거 · 스타터 팩 인앱결제 | Should | 출시 | 3일 | [Business Model](Monetization.md) · [서버](Server_Data.md) | 대기 |
 | `REQ_112` | 로그 이벤트 심기 | Must | 베타 | 1일 | [로그](Analytics.md) | 대기 |
 | `REQ_113` | 모바일 조작 정리 (버튼 배치 · 조준 보정) | Should | 베타 | 2일 | S-23 | 대기 |
 | `REQ_114` | 개인정보처리방침 · 이용약관 링크, 오픈소스 · 에셋 고지 화면 | Must | 출시 | 1일 | [사업화 · 법무](Business_Legal.md) | 대기 |

@@ -12,7 +12,7 @@
 
 ---
 
-## 1. 이 문서의 역할
+## 1. 목적
 출시 후 **무엇을 측정할지** 정하는 문서예요. 로그는 개발 중에 같이 심어야 해서 베타 전에 확정해요.
 > 지금 구현: 로그 없음. `Packages/manifest.json`에 `com.unity.analytics` 3.8.2(예전 Unity Analytics)가 들어 있지만 코드에서 쓰지 않아요. 어떤 도구를 쓸지 [F-08](needFix.md#8-정할-것)에서 정해요 (Firebase Analytics · Unity Gaming Services Analytics · GameAnalytics 등).
 

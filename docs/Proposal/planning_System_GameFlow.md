@@ -1,9 +1,9 @@
 # 시스템 — 게임 흐름 (씬 · 웨이브 · 게임오버 · 설정)
 
-> 문서 세트: [목차](../Index.md) · 기획: [컨셉](Concept.md) · [시스템-전투](System_Weapon.md) · **시스템-게임 흐름** · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · [밸런스](Balance.md) · 사업·운영: [사업 검토](../대표/Business.md) · [요구사항·로드맵](Requirements.md) · [Business Model](Monetization.md) · [서버·데이터](../개발/Server_Data.md) · [리소스](../디자인/Resources.md) · [로그·지표](Analytics.md) · [QA·출시](../QA/QA_Release.md) · [라이브 운영](../운영/LiveOps.md) · [사업화·법무](../대표/Business_Legal.md) · [needFix](../needFix.md)
+> 문서 세트: [목차](common_Index.md) · 기획: [컨셉](planning_Concept.md) · [시스템-전투](planning_System_Weapon.md) · **시스템-게임 흐름** · [전투·개체](planning_Combat_Entity.md) · [레벨 디자인](planning_LevelDesign.md) · [밸런스](planning_Balance.md) · 사업·운영: [사업 검토](owner_Business.md) · [요구사항·로드맵](planning_Requirements.md) · [Business Model](planning_Monetization.md) · [서버·데이터](dev_Server_Data.md) · [리소스](design_Resources.md) · [로그·지표](planning_Analytics.md) · [QA·출시](qa_QA_Release.md) · [라이브 운영](ops_LiveOps.md) · [사업화·법무](owner_Business_Legal.md) · [needFix](common_needFix.md)
 > 관련 코드: `GM.cs` · `GoblinSpawn.cs` · `UIM.cs` · `SM.cs` · `SceneChange.cs` · `SettingsMenu.cs` · `SettingsData.cs`
 
-> **문서 정보** · 문서 번호 `D03-FLOW` · 버전 v1.0 · 상태 `Review` · 담당 기획자 · 클라이언트 개발자 · 최종 수정 2026-11-21 · 관련 문서 [레벨 디자인](LevelDesign.md) · [서버·데이터](../개발/Server_Data.md)
+> **문서 정보** · 문서 번호 `D03-FLOW` · 버전 v1.0 · 상태 `Review` · 담당 기획자 · 클라이언트 개발자 · 최종 수정 2026-11-21 · 관련 문서 [레벨 디자인](planning_LevelDesign.md) · [서버·데이터](dev_Server_Data.md)
 
 **변경 이력**
 
@@ -350,19 +350,19 @@ flowchart TB
 
 | # | 상황 | 현재 동작 | 상태 |
 |---|---|---|---|
-| 1 | 10웨이브 전멸 | 조건(`웨이브 < 10`)이 거짓 → 아무 일도 안 일어남 | ⚠️ → [S-01](../needFix.md) |
-| 2 | 웨이브 사이 | 마지막 고블린이 죽은 다음 프레임에 바로 다음 웨이브 | → [S-10](../needFix.md) |
-| 3 | 한 웨이브 생성 | 한 프레임에 전부 `Instantiate` (6웨이브 320마리) | ⚠️ → [S-11](../needFix.md) |
+| 1 | 10웨이브 전멸 | 조건(`웨이브 < 10`)이 거짓 → 아무 일도 안 일어남 | ⚠️ → [S-01](common_needFix.md) |
+| 2 | 웨이브 사이 | 마지막 고블린이 죽은 다음 프레임에 바로 다음 웨이브 | → [S-10](common_needFix.md) |
+| 3 | 한 웨이브 생성 | 한 프레임에 전부 `Instantiate` (6웨이브 320마리) | ⚠️ → [S-11](common_needFix.md) |
 | 4 | 게임오버 후 점수 | `isGameOver`면 `AddScore` 무시 | ✅ |
 | 5 | 게임오버 순간 고블린 공격 | 공격 · 공격음 중단 | ✅ |
 | 6 | 씬 이동 버튼 연타 | `isChanging`으로 1번만 | ✅ |
 | 7 | 일시정지 상태에서 씬 이동 | 실제 시간으로 대기, 이동 전 timeScale 1 | ✅ |
 | 8 | 멈춘 채로 GM이 사라짐 | `OnDestroy`에서 timeScale 1 | ✅ |
 | 9 | GM이 씬에 2개 | 나중 것 삭제 | ✅ |
-| 10 | 소리 끔 상태에서 음량 조절 | `SetMasterVolume`이 volume을 바꿔 소리가 다시 남 | ⚠️ → [S-12](../needFix.md) |
-| 11 | 재시작 후 소리 끔 설정 | `Load()`가 음량만 읽고 `Settings_SoundOn`은 안 읽음 | ⚠️ → [S-12](../needFix.md) |
-| 12 | 최고 점수 · 최고 웨이브 | 저장 없음 | → [S-13](../needFix.md) |
-| 13 | 앱 백그라운드 전환 (모바일) | 처리 없음 | → [S-14](../needFix.md) |
+| 10 | 소리 끔 상태에서 음량 조절 | `SetMasterVolume`이 volume을 바꿔 소리가 다시 남 | ⚠️ → [S-12](common_needFix.md) |
+| 11 | 재시작 후 소리 끔 설정 | `Load()`가 음량만 읽고 `Settings_SoundOn`은 안 읽음 | ⚠️ → [S-12](common_needFix.md) |
+| 12 | 최고 점수 · 최고 웨이브 | 저장 없음 | → [S-13](common_needFix.md) |
+| 13 | 앱 백그라운드 전환 (모바일) | 처리 없음 | → [S-14](common_needFix.md) |
 
 ---
 

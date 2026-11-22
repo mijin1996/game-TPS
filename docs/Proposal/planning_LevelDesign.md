@@ -1,9 +1,9 @@
 # 레벨 디자인 — Play 씬 · 10웨이브
 
-> 문서 세트: [목차](../Index.md) · 기획: [컨셉](Concept.md) · [시스템-전투](System_Weapon.md) · [시스템-게임 흐름](System_GameFlow.md) · [전투·개체](Combat_Entity.md) · **레벨 디자인** · [밸런스](Balance.md) · 사업·운영: [사업 검토](../대표/Business.md) · [요구사항·로드맵](Requirements.md) · [Business Model](Monetization.md) · [서버·데이터](../개발/Server_Data.md) · [리소스](../디자인/Resources.md) · [로그·지표](Analytics.md) · [QA·출시](../QA/QA_Release.md) · [라이브 운영](../운영/LiveOps.md) · [사업화·법무](../대표/Business_Legal.md) · [needFix](../needFix.md)
-> 데이터: [`Balance/wave.json`](Balance/wave.json)
+> 문서 세트: [목차](common_Index.md) · 기획: [컨셉](planning_Concept.md) · [시스템-전투](planning_System_Weapon.md) · [시스템-게임 흐름](planning_System_GameFlow.md) · [전투·개체](planning_Combat_Entity.md) · **레벨 디자인** · [밸런스](planning_Balance.md) · 사업·운영: [사업 검토](owner_Business.md) · [요구사항·로드맵](planning_Requirements.md) · [Business Model](planning_Monetization.md) · [서버·데이터](dev_Server_Data.md) · [리소스](design_Resources.md) · [로그·지표](planning_Analytics.md) · [QA·출시](qa_QA_Release.md) · [라이브 운영](ops_LiveOps.md) · [사업화·법무](owner_Business_Legal.md) · [needFix](common_needFix.md)
+> 데이터: [`Balance/wave.json`](planning_Balance/wave.json)
 
-> **문서 정보** · 문서 번호 `D05-LEVEL` · 버전 v1.0 · 상태 `Review` · 담당 레벨 디자이너 · 최종 수정 2026-11-21 · 관련 문서 [밸런스](Balance.md)
+> **문서 정보** · 문서 번호 `D05-LEVEL` · 버전 v1.0 · 상태 `Review` · 담당 레벨 디자이너 · 최종 수정 2026-11-21 · 관련 문서 [밸런스](planning_Balance.md)
 
 **변경 이력**
 
@@ -30,7 +30,7 @@ x:   -19.66                  0          7.39
        SP3 ----------------- SP1 ------ SP2        <- [Spawners] 로컬 x 좌표 (y 0, z 0)
        |<------- 19.66 ----->|<- 7.39 ->|
 ```
-> 맵 전체 배치(엄폐물 · 플레이어 시작 위치)는 씬 탑다운 캡처로 넣어 주세요 → [S-19](../needFix.md)
+> 맵 전체 배치(엄폐물 · 플레이어 시작 위치)는 씬 탑다운 캡처로 넣어 주세요 → [S-19](common_needFix.md)
 
 **[도면] Play 씬 — 플레이어 시작 · 고블린 스폰 지점 (위에서 본 모습)**
 ```
@@ -63,7 +63,7 @@ z -1.1   x -22.4 ~ 10.1  (오른쪽 = +x, 위 = +z)
 | 2 | 고블린 스폰 2 | `SpawnPoint2` | 7.4, 10.7 |
 | 3 | 고블린 스폰 3 | `SpawnPoint3` | -19.7, 10.7 |
 
-세 스폰 지점은 플레이어 앞쪽(+z) 10.7m 줄에 있어요. 아이템은 플레이어 주변 반경 5m 안에 생겨요 (시스템-전투 §4-4). 엄폐물 · 건물 배치는 씬 캡처가 필요해요 ([S-19](../needFix.md)).
+세 스폰 지점은 플레이어 앞쪽(+z) 10.7m 줄에 있어요. 아이템은 플레이어 주변 반경 5m 안에 생겨요 (시스템-전투 §4-4). 엄폐물 · 건물 배치는 씬 캡처가 필요해요 ([S-19](common_needFix.md)).
 
 ## 3. 스폰 테이블 (`wave.json`)
 | 규칙 | 값 |
@@ -79,7 +79,7 @@ z -1.1   x -22.4 ~ 10.1  (오른쪽 = +x, 위 = +z)
 | 누적 | 10 | 30 | 70 | 150 | 310 | 630 | 1,270 | 2,550 | 5,110 | 10,230 |
 
 ## 4. 난이도 곡선
-> 바꾸자는 곡선 · 웨이브 구성은 [S-15 ~ S-17](../needFix.md)
+> 바꾸자는 곡선 · 웨이브 구성은 [S-15 ~ S-17](common_needFix.md)
 
 **[막대그래프] 웨이브별 고블린 수 (1 ~ 6웨이브)**
 ```mermaid

@@ -1,8 +1,8 @@
 # 리소스 (아트 · 사운드) 명세 — game-TPS
 
-> 문서 세트: [목차](../Index.md) · 기획: [컨셉](../기획/Concept.md) · [시스템-전투](../기획/System_Weapon.md) · [시스템-게임 흐름](../기획/System_GameFlow.md) · [전투·개체](../기획/Combat_Entity.md) · [레벨 디자인](../기획/LevelDesign.md) · [밸런스](../기획/Balance.md) · 사업·운영: [사업 검토](../대표/Business.md) · [요구사항·로드맵](../기획/Requirements.md) · [Business Model](../기획/Monetization.md) · [서버·데이터](../개발/Server_Data.md) · **리소스** · [로그·지표](../기획/Analytics.md) · [QA·출시](../QA/QA_Release.md) · [라이브 운영](../운영/LiveOps.md) · [사업화·법무](../대표/Business_Legal.md) · [needFix](../needFix.md)
+> 문서 세트: [목차](common_Index.md) · 기획: [컨셉](planning_Concept.md) · [시스템-전투](planning_System_Weapon.md) · [시스템-게임 흐름](planning_System_GameFlow.md) · [전투·개체](planning_Combat_Entity.md) · [레벨 디자인](planning_LevelDesign.md) · [밸런스](planning_Balance.md) · 사업·운영: [사업 검토](owner_Business.md) · [요구사항·로드맵](planning_Requirements.md) · [Business Model](planning_Monetization.md) · [서버·데이터](dev_Server_Data.md) · **리소스** · [로그·지표](planning_Analytics.md) · [QA·출시](qa_QA_Release.md) · [라이브 운영](ops_LiveOps.md) · [사업화·법무](owner_Business_Legal.md) · [needFix](common_needFix.md)
 
-> **문서 정보** · 문서 번호 `D09-RES` · 버전 v1.0 · 상태 `Draft` · 담당 아티스트 · 사운드 디자이너 · 최종 수정 2026-11-21 · 관련 문서 [전투·개체](../기획/Combat_Entity.md) · [사업화·법무](../대표/Business_Legal.md)
+> **문서 정보** · 문서 번호 `D09-RES` · 버전 v1.0 · 상태 `Draft` · 담당 아티스트 · 사운드 디자이너 · 최종 수정 2026-11-21 · 관련 문서 [전투·개체](planning_Combat_Entity.md) · [사업화·법무](owner_Business_Legal.md)
 
 **변경 이력**
 
@@ -14,7 +14,7 @@
 
 ## 1. 목적
 게임에 들어가는 **모든 그림 · 모델 · 소리 · 폰트의 목록 · 규격 · 라이선스**를 관리해요. 외주 발주서와 출시 전 라이선스 점검표로 써요.
-> **규칙:** 라이선스 칸이 `확인됨`이 아닌 리소스가 하나라도 있으면 출시하지 않아요 ([QA · 출시](../QA/QA_Release.md)).
+> **규칙:** 라이선스 칸이 `확인됨`이 아닌 리소스가 하나라도 있으면 출시하지 않아요 ([QA · 출시](qa_QA_Release.md)).
 
 ## 2. 지금 쓰는 리소스 (`Assets` 폴더 기준)
 
@@ -58,18 +58,18 @@
 | `FONT_DMG` | `Oswald-VariableFont_wght.ttf` | ✅ SIL OFL 1.1 |
 | (예제) | `TextMesh Pro/Examples & Extras/Fonts/*` | 빌드에 안 쓰면 삭제 권장 |
 
-> 같은 파일이 `Audios/`와 `tps에 필요 재료/Clip*`에 **두 벌** 있어요. 쓰는 쪽만 남기면 빌드 용량 · 관리가 줄어요 → [F-07](../needFix.md#8-정할-것)
+> 같은 파일이 `Audios/`와 `tps에 필요 재료/Clip*`에 **두 벌** 있어요. 쓰는 쪽만 남기면 빌드 용량 · 관리가 줄어요 → [F-07](common_needFix.md#8-정할-것)
 
 ## 3. 새로 필요한 리소스 (needFix 제안 기준)
 | 리소스 ID | 종류 | 규격 | 프레임 · 길이 | 관련 | 담당 | 상태 |
 |---|---|---|---|---|---|---|
-| `MDL_GOB_RUNNER` · `MDL_GOB_BRUTE` | 고블린 변형 (색 · 크기 차이로도 가능) | 기존 고블린 리그 재사용 | — | [S-16](../needFix.md) | 미정 | 대기 |
-| `ANI_GOB_ATK_WINDUP` | 공격 예고 동작 | 기존 리그 | 0.3초 | [S-17](../needFix.md) | 미정 | 대기 |
-| `FX_GOB_HITFLASH` | 피격 흰색 번쩍임 | 머티리얼 · 셰이더 | 0.1초 | [S-17](../needFix.md) | 개발자 | 대기 |
-| `UI_CLEAR` | 클리어 창 | 1080 × 1920 기준 | — | [S-01](../needFix.md) | 미정 | 대기 |
-| `UI_SHOP_*` | 업그레이드 상점 아이콘 3종 | 256 × 256 PNG | — | [Business Model](../기획/Monetization.md) | 미정 | 대기 |
-| `SFX_MAG_EMPTY` | 빈 탄창 소리 | WAV · 0.2초 이내 | — | [S-04](../needFix.md) | 미정 | 대기 |
-| `STORE_*` | 스토어 아이콘 · 스크린샷 · 피처 그래픽 | 스토어 규격 | — | [QA · 출시](../QA/QA_Release.md) | 미정 | 대기 |
+| `MDL_GOB_RUNNER` · `MDL_GOB_BRUTE` | 고블린 변형 (색 · 크기 차이로도 가능) | 기존 고블린 리그 재사용 | — | [S-16](common_needFix.md) | 미정 | 대기 |
+| `ANI_GOB_ATK_WINDUP` | 공격 예고 동작 | 기존 리그 | 0.3초 | [S-17](common_needFix.md) | 미정 | 대기 |
+| `FX_GOB_HITFLASH` | 피격 흰색 번쩍임 | 머티리얼 · 셰이더 | 0.1초 | [S-17](common_needFix.md) | 개발자 | 대기 |
+| `UI_CLEAR` | 클리어 창 | 1080 × 1920 기준 | — | [S-01](common_needFix.md) | 미정 | 대기 |
+| `UI_SHOP_*` | 업그레이드 상점 아이콘 3종 | 256 × 256 PNG | — | [Business Model](planning_Monetization.md) | 미정 | 대기 |
+| `SFX_MAG_EMPTY` | 빈 탄창 소리 | WAV · 0.2초 이내 | — | [S-04](common_needFix.md) | 미정 | 대기 |
+| `STORE_*` | 스토어 아이콘 · 스크린샷 · 피처 그래픽 | 스토어 규격 | — | [QA · 출시](qa_QA_Release.md) | 미정 | 대기 |
 
 ## 4. 외주 · 무료 에셋 규칙
 - 외주 리소스는 계약서에 **저작권 양도 또는 이용 범위**(상업 · 기간 · 지역)를 적어요.

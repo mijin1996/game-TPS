@@ -62,5 +62,5 @@
 ---
 
 ## 📁 문서
-- [`docs/Proposal/Index.md`](docs/Proposal/Index.md) — 기획서 (컨셉 ~ 사업화 · 법무) · [needFix](docs/Proposal/needFix.md)
+- [`docs/Proposal/common_Index.md`](docs/Proposal/common_Index.md) — 기획서 (컨셉 ~ 사업화 · 법무) · [needFix](docs/Proposal/common_needFix.md)
 - [`docs/MeMemo.md`](docs/MeMemo.md) — 코루틴→UniTask, 델타타임·랜덤 정리 메모

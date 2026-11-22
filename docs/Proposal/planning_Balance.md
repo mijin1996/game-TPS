@@ -1,10 +1,10 @@
 # 밸런스 · 데이터
 
-> 문서 세트: [목차](../Index.md) · 기획: [컨셉](Concept.md) · [시스템-전투](System_Weapon.md) · [시스템-게임 흐름](System_GameFlow.md) · [전투·개체](Combat_Entity.md) · [레벨 디자인](LevelDesign.md) · **밸런스** · 사업·운영: [사업 검토](../대표/Business.md) · [요구사항·로드맵](Requirements.md) · [Business Model](Monetization.md) · [서버·데이터](../개발/Server_Data.md) · [리소스](../디자인/Resources.md) · [로그·지표](Analytics.md) · [QA·출시](../QA/QA_Release.md) · [라이브 운영](../운영/LiveOps.md) · [사업화·법무](../대표/Business_Legal.md) · [needFix](../needFix.md)
-> 데이터 파일 (JSON · Unity `JsonUtility`로 바로 읽는 구조): [`weapon.json`](Balance/weapon.json) · [`goblin.json`](Balance/goblin.json) · [`item.json`](Balance/item.json) · [`wave.json`](Balance/wave.json)
+> 문서 세트: [목차](common_Index.md) · 기획: [컨셉](planning_Concept.md) · [시스템-전투](planning_System_Weapon.md) · [시스템-게임 흐름](planning_System_GameFlow.md) · [전투·개체](planning_Combat_Entity.md) · [레벨 디자인](planning_LevelDesign.md) · **밸런스** · 사업·운영: [사업 검토](owner_Business.md) · [요구사항·로드맵](planning_Requirements.md) · [Business Model](planning_Monetization.md) · [서버·데이터](dev_Server_Data.md) · [리소스](design_Resources.md) · [로그·지표](planning_Analytics.md) · [QA·출시](qa_QA_Release.md) · [라이브 운영](ops_LiveOps.md) · [사업화·법무](owner_Business_Legal.md) · [needFix](common_needFix.md)
+> 데이터 파일 (JSON · Unity `JsonUtility`로 바로 읽는 구조): [`weapon.json`](planning_Balance/weapon.json) · [`goblin.json`](planning_Balance/goblin.json) · [`item.json`](planning_Balance/item.json) · [`wave.json`](planning_Balance/wave.json)
 > 값은 `Play` 씬 · 프리팹 · ScriptableObject에 저장된 실제 값 기준
 
-> **문서 정보** · 문서 번호 `D06-BAL` · 버전 v1.0 · 상태 `Review` · 담당 밸런스 기획자 · 최종 수정 2026-11-21 · 관련 문서 [밸런스 JSON](Balance) · [Business Model](Monetization.md)
+> **문서 정보** · 문서 번호 `D06-BAL` · 버전 v1.0 · 상태 `Review` · 담당 밸런스 기획자 · 최종 수정 2026-11-21 · 관련 문서 [밸런스 JSON](planning_Balance) · [Business Model](planning_Monetization.md)
 
 **변경 이력**
 

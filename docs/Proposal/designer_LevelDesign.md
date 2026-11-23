@@ -1,16 +1,18 @@
 # 레벨 디자인 — Play 씬 · 10웨이브
 
-> 문서 세트: [목차](common_Index.md) · 기획: [컨셉](planning_Concept.md) · [시스템-전투](planning_System_Weapon.md) · [시스템-게임 흐름](planning_System_GameFlow.md) · [전투·개체](planning_Combat_Entity.md) · **레벨 디자인** · [밸런스](planning_Balance.md) · 사업·운영: [사업 검토](owner_Business.md) · [요구사항·로드맵](planning_Requirements.md) · [Business Model](planning_Monetization.md) · [서버·데이터](dev_Server_Data.md) · [리소스](design_Resources.md) · [로그·지표](planning_Analytics.md) · [QA·출시](qa_QA_Release.md) · [라이브 운영](ops_LiveOps.md) · [사업화·법무](owner_Business_Legal.md) · [needFix](common_needFix.md)
-> 데이터: [`Balance/wave.json`](planning_Balance/wave.json)
+> 문서 세트: [목차](common_Index.md) · 기획: [컨셉](planner_Concept.md) · [시스템-전투](planner_System_Weapon.md) · [시스템-게임 흐름](planner_System_GameFlow.md) · [전투·개체](planner_Combat_Entity.md) · **레벨 디자인** · [밸런스](planner_Balance.md) · 사업·운영: [사업 검토](owner_Business.md) · [요구사항·로드맵](planner_Requirements.md) · [Business Model](planner_Monetization.md) · [서버·데이터](developer_Server_Data.md) · [리소스](designer_Resources.md) · [로그·지표](planner_Analytics.md) · [QA·출시](tester_Release.md) · [라이브 운영](operator_LiveOps.md) · [사업화·법무](owner_Legal.md) · [needFix](common_needFix.md)
+> 데이터: [`Balance/wave.json`](planner_Balance/wave.json)
 
-> **문서 정보** · 문서 번호 `D05-LEVEL` · 버전 v1.0 · 상태 `Review` · 담당 레벨 디자이너 · 최종 수정 2026-11-21 · 관련 문서 [밸런스](planning_Balance.md)
+> **문서 정보**
+
+| 문서 번호 | 버전 | 상태 | 책임자 | 협업 | 최종 수정 | 관련 문서 |
+|---|---|---|---|---|---|---|
+| `D05-LEVEL` | v1.1 | `Review` | 레벨 디자이너 | 밸런스 기획자 | 2026-11-23 | [밸런스](planner_Balance.md) |
 
 **변경 이력**
 
 | 버전 | 날짜 | 변경 내용 | 사유 | 결정자 | 영향 범위 |
 |---|---|---|---|---|---|
-| v0.9 | 2026-11-20 | 기존 문서 (자세한 기록은 git 커밋) | — | 레벨 디자이너 | — |
-| v1.0 | 2026-11-21 | 문서 정보 · 변경 이력 · 문서 번호 추가, 사업 · 운영 문서와 연결 | — | 레벨 디자이너 | 문서만 |
 
 ---
 
@@ -23,14 +25,14 @@
 | 목표 | 10웨이브 버티기 (클리어 화면은 없음) | `GoblinSpawn.maxWave` |
 
 ## 2. 스폰 지점
-`[Spawners]` 기준 로컬 위치 — 세 지점이 같은 줄(z 같음) 위에 있어요.
+`[Spawners]` 기준 로컬 위치 — 세 지점이 같은 줄(z 같음) 위에 있음.
 
 ```
 x:   -19.66                  0          7.39
        SP3 ----------------- SP1 ------ SP2        <- [Spawners] 로컬 x 좌표 (y 0, z 0)
        |<------- 19.66 ----->|<- 7.39 ->|
 ```
-> 맵 전체 배치(엄폐물 · 플레이어 시작 위치)는 씬 탑다운 캡처로 넣어 주세요 → [S-19](common_needFix.md)
+> 맵 전체 배치(엄폐물 · 플레이어 시작 위치)는 씬 탑다운 캡처 첨부 필요 (담당: 레벨 디자이너) → [S-19](common_needFix.md)
 
 **[도면] Play 씬 — 플레이어 시작 · 고블린 스폰 지점 (위에서 본 모습)**
 ```
@@ -63,7 +65,7 @@ z -1.1   x -22.4 ~ 10.1  (오른쪽 = +x, 위 = +z)
 | 2 | 고블린 스폰 2 | `SpawnPoint2` | 7.4, 10.7 |
 | 3 | 고블린 스폰 3 | `SpawnPoint3` | -19.7, 10.7 |
 
-세 스폰 지점은 플레이어 앞쪽(+z) 10.7m 줄에 있어요. 아이템은 플레이어 주변 반경 5m 안에 생겨요 (시스템-전투 §4-4). 엄폐물 · 건물 배치는 씬 캡처가 필요해요 ([S-19](common_needFix.md)).
+세 스폰 지점은 플레이어 앞쪽(+z) 10.7m 줄에 있음. 아이템은 플레이어 주변 반경 5m 안에 생김 (시스템-전투 §4-4). 엄폐물 · 건물 배치는 씬 캡처가 필요함 ([S-19](common_needFix.md)).
 
 ## 3. 스폰 테이블 (`wave.json`)
 | 규칙 | 값 |

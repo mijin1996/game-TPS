@@ -1,22 +1,24 @@
 # 시스템 — 게임 흐름 (씬 · 웨이브 · 게임오버 · 설정)
 
-> 문서 세트: [목차](common_Index.md) · 기획: [컨셉](planning_Concept.md) · [시스템-전투](planning_System_Weapon.md) · **시스템-게임 흐름** · [전투·개체](planning_Combat_Entity.md) · [레벨 디자인](planning_LevelDesign.md) · [밸런스](planning_Balance.md) · 사업·운영: [사업 검토](owner_Business.md) · [요구사항·로드맵](planning_Requirements.md) · [Business Model](planning_Monetization.md) · [서버·데이터](dev_Server_Data.md) · [리소스](design_Resources.md) · [로그·지표](planning_Analytics.md) · [QA·출시](qa_QA_Release.md) · [라이브 운영](ops_LiveOps.md) · [사업화·법무](owner_Business_Legal.md) · [needFix](common_needFix.md)
+> 문서 세트: [목차](common_Index.md) · 기획: [컨셉](planner_Concept.md) · [시스템-전투](planner_System_Weapon.md) · **시스템-게임 흐름** · [전투·개체](planner_Combat_Entity.md) · [레벨 디자인](designer_LevelDesign.md) · [밸런스](planner_Balance.md) · 사업·운영: [사업 검토](owner_Business.md) · [요구사항·로드맵](planner_Requirements.md) · [Business Model](planner_Monetization.md) · [서버·데이터](developer_Server_Data.md) · [리소스](designer_Resources.md) · [로그·지표](planner_Analytics.md) · [QA·출시](tester_Release.md) · [라이브 운영](operator_LiveOps.md) · [사업화·법무](owner_Legal.md) · [needFix](common_needFix.md)
 > 관련 코드: `GM.cs` · `GoblinSpawn.cs` · `UIM.cs` · `SM.cs` · `SceneChange.cs` · `SettingsMenu.cs` · `SettingsData.cs`
 
-> **문서 정보** · 문서 번호 `D03-FLOW` · 버전 v1.0 · 상태 `Review` · 담당 기획자 · 클라이언트 개발자 · 최종 수정 2026-11-21 · 관련 문서 [레벨 디자인](planning_LevelDesign.md) · [서버·데이터](dev_Server_Data.md)
+> **문서 정보**
+
+| 문서 번호 | 버전 | 상태 | 책임자 | 협업 | 최종 수정 | 관련 문서 |
+|---|---|---|---|---|---|---|
+| `D03-FLOW` | v1.1 | `Review` | 기획자 | 클라이언트 개발자 | 2026-11-23 | [레벨 디자인](designer_LevelDesign.md) · [서버·데이터](developer_Server_Data.md) |
 
 **변경 이력**
 
 | 버전 | 날짜 | 변경 내용 | 사유 | 결정자 | 영향 범위 |
 |---|---|---|---|---|---|
-| v0.9 | 2026-11-20 | 기존 문서 (자세한 기록은 git 커밋) | — | 기획자 | — |
-| v1.0 | 2026-11-21 | 문서 정보 · 변경 이력 · 문서 번호 추가, 사업 · 운영 문서와 연결 | — | 기획자 | 문서만 |
 
 ---
 
 ## 0. 한눈에 보는 시스템 구조
 
-**[구성도] 이벤트 연결 (누가 알리고 누가 듣나)**
+**[구성도] 이벤트 연결 (발신 → 수신)**
 ```mermaid
 flowchart LR
   subgraph L1["① 입력 · 씬"]
@@ -118,7 +120,7 @@ stateDiagram-v2
 | I | 조준점 | 화면 가운데 | `Crosshair` · 632.5 ~ 647.5, 352.5 ~ 367.5 |
 | J | 설정 | 설정 창 (열면 일시정지) | `Settings` · 561 ~ 661, 268 ~ 368 |
 
-화면 나머지 영역을 드래그하면 시점이 돌아가요 (`CamLook`). 체력바는 플레이어 머리 위에 따로 떠 있어요 (`HealthCanvas`).
+화면 나머지 영역을 드래그하면 시점이 돌아감 (`CamLook`). 체력바는 플레이어 머리 위에 따로 떠 있음 (`HealthCanvas`).
 
 ## 2. Play 씬 상태 머신
 
@@ -195,7 +197,7 @@ flowchart TD
 now : [ W1 ......... ][ W2 ............ ][ W3 ...      (웨이브 사이 대기 없음)
 ```
 
-> 세부 조건(코드 기준)은 [부록 A-1](#a-1-웨이브-로직-goblinspawn)에 있어요.
+> 세부 조건(코드 기준)은 [부록 A-1](#a-1-웨이브-로직-goblinspawn)에 있음.
 
 ## 4. 게임오버 로직
 
@@ -227,7 +229,7 @@ flowchart TD
   classDef endc fill:#6B7280,color:#fff,stroke:#6B7280
 ```
 
-> 세부 조건(코드 기준)은 [부록 A-2](#a-2-게임오버-로직)에 있어요.
+> 세부 조건(코드 기준)은 [부록 A-2](#a-2-게임오버-로직)에 있음.
 
 ## 5. 설정 · 일시정지 로직
 
@@ -259,7 +261,7 @@ flowchart TD
 
 요소: X(닫기) · 음량 슬라이더 + "70%" 글자 · 소리 버튼(아이콘 on/off) · 나가기 버튼
 
-> 세부 조건(코드 기준)은 [부록 A-3](#a-3-설정--일시정지-로직)에 있어요.
+> 세부 조건(코드 기준)은 [부록 A-3](#a-3-설정--일시정지-로직)에 있음.
 
 ## 6. 씬 이동 로직 (`SceneChange`)
 
@@ -287,10 +289,10 @@ flowchart TD
   classDef endc fill:#6B7280,color:#fff,stroke:#6B7280
 ```
 
-> 세부 조건(코드 기준)은 [부록 A-4](#a-4-씬-이동-로직-scenechange)에 있어요.
+> 세부 조건(코드 기준)은 [부록 A-4](#a-4-씬-이동-로직-scenechange)에 있음.
 
 ## 7. 이벤트 연결표
-그림은 맨 위 **[구성도] 이벤트 연결**을 보세요. 아래는 같은 내용을 정확한 이름으로 정리한 표예요.
+그림은 맨 위 **[구성도] 이벤트 연결** 참고. 아래는 같은 내용을 정확한 이름으로 정리한 표임.
 
 | 이벤트 | 보내는 쪽 | 받는 쪽 |
 |---|---|---|
@@ -308,7 +310,7 @@ flowchart TD
 | `SettingsMenu.onGoHomeRequested` | SettingsMenu | SceneChange |
 | `SceneChange.onChangeRequested` | SceneChange | SM (클릭음) |
 
-> 각 스크립트는 알림만 보내고, 필요한 쪽이 구독해요. UI를 바꿔도 게임 규칙 코드는 건드리지 않아요.
+> 각 스크립트는 알림만 보내고, 필요한 쪽이 구독함. UI를 바꿔도 게임 규칙 코드는 건드리지 않음.
 
 ## 8. 예외 처리 (Edge Case) — 현재 동작
 **[구성도] 예외 처리 지도 — 게임 흐름**
@@ -367,7 +369,7 @@ flowchart TB
 ---
 
 ## 부록 A. 세부 조건 (코드 기준)
-본문 흐름도의 조건을 코드 그대로 적은 개발 참고용이에요. 기획 내용은 본문에 있어요.
+본문 흐름도의 조건을 코드 그대로 적은 개발 참고용임. 기획 내용은 본문에 있음.
 
 ### A-1. 웨이브 로직 (`GoblinSpawn`)
 ```
@@ -422,9 +424,9 @@ Start / Restart / Home 버튼
 ```
 
 ## 부록 B. 코드 구조 (상속 · 인터페이스 · 이벤트 · 호출)
-개발자와 구조를 맞출 때 보는 참고 자료예요. 게임 규칙은 본문 §0 ~ §8에 있어요.
+개발자와 구조를 맞출 때 보는 참고 자료임. 게임 규칙은 본문 §0 ~ §8에 있음.
 
-`Assets/Scripts`의 스크립트 34개(클래스 29 · 인터페이스 4 · static 1)가 어떻게 이어지는지 코드 기준으로 그렸어요. 외부 에셋(조이스틱 · UI 팩)은 빼고 이 프로젝트 코드만 담았어요.
+`Assets/Scripts`의 스크립트 34개(클래스 29 · 인터페이스 4 · static 1)가 어떻게 이어지는지 코드 기준으로 그렸음. 외부 에셋(조이스틱 · UI 팩)은 빼고 이 프로젝트 코드만 담았음.
 
 | 연결 방식 | 코드 모양 | 이 게임에서 |
 |---|---|---|

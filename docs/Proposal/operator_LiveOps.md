@@ -1,19 +1,22 @@
 # 라이브 운영 — game-TPS
 
-> 문서 세트: [목차](common_Index.md) · 기획: [컨셉](planning_Concept.md) · [시스템-전투](planning_System_Weapon.md) · [시스템-게임 흐름](planning_System_GameFlow.md) · [전투·개체](planning_Combat_Entity.md) · [레벨 디자인](planning_LevelDesign.md) · [밸런스](planning_Balance.md) · 사업·운영: [사업 검토](owner_Business.md) · [요구사항·로드맵](planning_Requirements.md) · [Business Model](planning_Monetization.md) · [서버·데이터](dev_Server_Data.md) · [리소스](design_Resources.md) · [로그·지표](planning_Analytics.md) · [QA·출시](qa_QA_Release.md) · **라이브 운영** · [사업화·법무](owner_Business_Legal.md) · [needFix](common_needFix.md)
+> 문서 세트: [목차](common_Index.md) · 기획: [컨셉](planner_Concept.md) · [시스템-전투](planner_System_Weapon.md) · [시스템-게임 흐름](planner_System_GameFlow.md) · [전투·개체](planner_Combat_Entity.md) · [레벨 디자인](designer_LevelDesign.md) · [밸런스](planner_Balance.md) · 사업·운영: [사업 검토](owner_Business.md) · [요구사항·로드맵](planner_Requirements.md) · [Business Model](planner_Monetization.md) · [서버·데이터](developer_Server_Data.md) · [리소스](designer_Resources.md) · [로그·지표](planner_Analytics.md) · [QA·출시](tester_Release.md) · **라이브 운영** · [사업화·법무](owner_Legal.md) · [needFix](common_needFix.md)
 
-> **문서 정보** · 문서 번호 `D12-LIVE` · 버전 v1.0 · 상태 `Draft` · 담당 운영 담당 · 최종 수정 2026-11-21 · 관련 문서 [로그·지표](planning_Analytics.md)
+> **문서 정보**
+
+| 문서 번호 | 버전 | 상태 | 책임자 | 협업 | 최종 수정 | 관련 문서 |
+|---|---|---|---|---|---|---|
+| `D12-LIVE` | v1.1 | `Draft` | 운영 매니저 | 기획자 | 2026-11-23 | [로그·지표](planner_Analytics.md) |
 
 **변경 이력**
 
 | 버전 | 날짜 | 변경 내용 | 사유 | 결정자 | 영향 범위 |
 |---|---|---|---|---|---|
-| v1.0 | 2026-11-21 | 최초 작성 | — | 운영 담당 | — |
 
 ---
 
 ## 1. 목적
-출시 후 **게임을 어떻게 유지하고 키울지** 정하는 문서예요. 1인 운영 기준이라 작게 시작해요.
+출시 후 **게임을 어떻게 유지하고 키울지** 정하는 문서임. 1인 운영 기준이라 작게 시작함.
 
 ## 2. 업데이트 주기 (제안)
 | 종류 | 주기 | 내용 |
@@ -26,12 +29,12 @@
 | 지표 | 이상 기준 | 대응 |
 |---|---|---|
 | D1 재접속률 | 지난주보다 5%p 하락 | 첫 판 웨이브 1 ~ 3 난이도 · 튜토리얼 점검 |
-| 웨이브별 도달률 | 한 웨이브에서 30%p 이상 급락 | 그 웨이브 마리 수 · 종류 조정 ([밸런스](planning_Balance.md) JSON) |
+| 웨이브별 도달률 | 한 웨이브에서 30%p 이상 급락 | 그 웨이브 마리 수 · 종류 조정 ([밸런스](planner_Balance.md) JSON) |
 | 한 판 평균 시간 | 4분 초과 | 웨이브 수 · 마리 수 줄이기 |
 | 크래시율 | 1% 초과 | 핫픽스 |
 | 광고 시청률 | 20% 미만 | 보상 크기 · 버튼 위치 점검 |
 
-> 밸런스만 바꿀 때는 JSON만 고쳐서 내보낼 수 있게, 나중에 **원격 설정**(Remote Config) 도입을 검토해요 → [F-06](common_needFix.md#8-정할-것)
+> 밸런스만 바꿀 때는 JSON만 고쳐서 내보낼 수 있게, 나중에 **원격 설정**(Remote Config) 도입을 검토함 → [F-06](common_needFix.md#8-정할-것)
 
 ## 4. 이벤트 캘린더 (예시)
 | 이벤트 | 기간 | 규칙 · 보상 | 필요한 작업 |
@@ -47,7 +50,7 @@
 - 바꿨어요: 4웨이브 고블린 수 22 → 18
 - 새로 나왔어요: (없음)
 ```
-> 유저용은 위처럼 짧게, 내부용은 변경한 JSON · 문서 ID · 커밋을 함께 적어요.
+> 유저용은 위처럼 짧게, 내부용은 변경한 JSON · 문서 ID · 커밋 함께 기록 필요.
 
 ## 6. CS 처리
 | 문의 유형 | 처리 | 기한 |
@@ -55,10 +58,10 @@
 | 결제했는데 안 들어옴 | 주문번호 확인 → 스토어 기록 조회 → 수동 지급 | 24시간 |
 | 환불 요청 | 스토어 환불 정책 안내 (환불은 스토어가 처리) | 24시간 |
 | 미성년자 결제 취소 | 법정대리인 확인 서류 → 스토어 환불 절차 안내, 지급 재화 회수 | 3일 |
-| 기기 변경 후 기록 없음 | 계정 연동 여부 확인 ([서버](dev_Server_Data.md) §5) | 24시간 |
-| 버그 신고 | 기기 · 버전 · 재현 방법 받기 → [QA](qa_QA_Release.md) TC 추가 | 확인 후 답변 |
+| 기기 변경 후 기록 없음 | 계정 연동 여부 확인 ([서버](developer_Server_Data.md) §5) | 24시간 |
+| 버그 신고 | 기기 · 버전 · 재현 방법 받기 → [QA](tester_Release.md) TC 추가 | 확인 후 답변 |
 
-> CS 연락처(이메일)는 스토어 등록 정보와 게임 설정 창에 같은 주소로 넣어요.
+> CS 연락처(이메일)는 스토어 등록 정보와 게임 설정 창에 같은 주소로 기재 필요.
 
 ## 7. 장애 대응
 | 등급 | 예 | 공지 | 보상 |
@@ -68,7 +71,7 @@
 | 3 (경미) | 화면 깨짐 | 패치노트 | 없음 |
 
 ## 8. 제재 기준
-혼자 하는 게임이라 랭킹 · 서버 재화가 생길 때부터 적용해요.
+싱글 플레이 게임이므로 랭킹 · 서버 재화가 생길 때부터 적용함.
 | 행위 | 1회 | 2회 | 3회 |
 |---|---|---|---|
 | 비정상 판 결과 (서버 검증 실패) | 그 판 보상 없음 | 경고 | 랭킹 제외 |

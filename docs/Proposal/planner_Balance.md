@@ -1,17 +1,19 @@
 # 밸런스 · 데이터
 
-> 문서 세트: [목차](common_Index.md) · 기획: [컨셉](planning_Concept.md) · [시스템-전투](planning_System_Weapon.md) · [시스템-게임 흐름](planning_System_GameFlow.md) · [전투·개체](planning_Combat_Entity.md) · [레벨 디자인](planning_LevelDesign.md) · **밸런스** · 사업·운영: [사업 검토](owner_Business.md) · [요구사항·로드맵](planning_Requirements.md) · [Business Model](planning_Monetization.md) · [서버·데이터](dev_Server_Data.md) · [리소스](design_Resources.md) · [로그·지표](planning_Analytics.md) · [QA·출시](qa_QA_Release.md) · [라이브 운영](ops_LiveOps.md) · [사업화·법무](owner_Business_Legal.md) · [needFix](common_needFix.md)
-> 데이터 파일 (JSON · Unity `JsonUtility`로 바로 읽는 구조): [`weapon.json`](planning_Balance/weapon.json) · [`goblin.json`](planning_Balance/goblin.json) · [`item.json`](planning_Balance/item.json) · [`wave.json`](planning_Balance/wave.json)
+> 문서 세트: [목차](common_Index.md) · 기획: [컨셉](planner_Concept.md) · [시스템-전투](planner_System_Weapon.md) · [시스템-게임 흐름](planner_System_GameFlow.md) · [전투·개체](planner_Combat_Entity.md) · [레벨 디자인](designer_LevelDesign.md) · **밸런스** · 사업·운영: [사업 검토](owner_Business.md) · [요구사항·로드맵](planner_Requirements.md) · [Business Model](planner_Monetization.md) · [서버·데이터](developer_Server_Data.md) · [리소스](designer_Resources.md) · [로그·지표](planner_Analytics.md) · [QA·출시](tester_Release.md) · [라이브 운영](operator_LiveOps.md) · [사업화·법무](owner_Legal.md) · [needFix](common_needFix.md)
+> 데이터 파일 (JSON · Unity `JsonUtility`로 바로 읽는 구조): [`weapon.json`](planner_Balance/weapon.json) · [`goblin.json`](planner_Balance/goblin.json) · [`item.json`](planner_Balance/item.json) · [`wave.json`](planner_Balance/wave.json)
 > 값은 `Play` 씬 · 프리팹 · ScriptableObject에 저장된 실제 값 기준
 
-> **문서 정보** · 문서 번호 `D06-BAL` · 버전 v1.0 · 상태 `Review` · 담당 밸런스 기획자 · 최종 수정 2026-11-21 · 관련 문서 [밸런스 JSON](planning_Balance) · [Business Model](planning_Monetization.md)
+> **문서 정보**
+
+| 문서 번호 | 버전 | 상태 | 책임자 | 협업 | 최종 수정 | 관련 문서 |
+|---|---|---|---|---|---|---|
+| `D06-BAL` | v1.1 | `Review` | 밸런스 기획자 | — | 2026-11-23 | [밸런스 JSON](planner_Balance) · [Business Model](planner_Monetization.md) |
 
 **변경 이력**
 
 | 버전 | 날짜 | 변경 내용 | 사유 | 결정자 | 영향 범위 |
 |---|---|---|---|---|---|
-| v0.9 | 2026-11-20 | 기존 문서 (자세한 기록은 git 커밋) | — | 밸런스 기획자 | — |
-| v1.0 | 2026-11-21 | 문서 정보 · 변경 이력 · 문서 번호 추가, 사업 · 운영 문서와 연결 | — | 밸런스 기획자 | 문서만 |
 
 ---
 
@@ -35,7 +37,7 @@ xychart-beta
   line [0, 625, 625, 1250, 1250]
 ```
 
-> 재장전이 전체 화력을 37% 줄여요 (208 → 130).
+> 재장전이 전체 화력을 37% 줄임 (208 → 130).
 
 ## 2. 고블린 (`goblin.json`)
 | ID | 데이터 | 체력 | 공격 | 간격 | 속도 | 점수 | 처치 탄수 | 처치 시간 | 플레이어에게 주는 DPS | 플레이어 처치 타수 |
@@ -49,7 +51,7 @@ xychart-beta
 수류탄     = 100 ≥ 체력 100 → 반경 안 고블린 처치
 ```
 
-**[타임라인] 누가 먼저 쓰러지나 (고블린 1마리 vs 플레이어)**
+**[타임라인] 선 쓰러짐 비교 (고블린 1마리 vs 플레이어)**
 ```mermaid
 gantt
   title 처치 시간 비교

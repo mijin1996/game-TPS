@@ -1,19 +1,22 @@
 # QA · 출시 체크리스트 — game-TPS
 
-> 문서 세트: [목차](common_Index.md) · 기획: [컨셉](planning_Concept.md) · [시스템-전투](planning_System_Weapon.md) · [시스템-게임 흐름](planning_System_GameFlow.md) · [전투·개체](planning_Combat_Entity.md) · [레벨 디자인](planning_LevelDesign.md) · [밸런스](planning_Balance.md) · 사업·운영: [사업 검토](owner_Business.md) · [요구사항·로드맵](planning_Requirements.md) · [Business Model](planning_Monetization.md) · [서버·데이터](dev_Server_Data.md) · [리소스](design_Resources.md) · [로그·지표](planning_Analytics.md) · **QA·출시** · [라이브 운영](ops_LiveOps.md) · [사업화·법무](owner_Business_Legal.md) · [needFix](common_needFix.md)
+> 문서 세트: [목차](common_Index.md) · 기획: [컨셉](planner_Concept.md) · [시스템-전투](planner_System_Weapon.md) · [시스템-게임 흐름](planner_System_GameFlow.md) · [전투·개체](planner_Combat_Entity.md) · [레벨 디자인](designer_LevelDesign.md) · [밸런스](planner_Balance.md) · 사업·운영: [사업 검토](owner_Business.md) · [요구사항·로드맵](planner_Requirements.md) · [Business Model](planner_Monetization.md) · [서버·데이터](developer_Server_Data.md) · [리소스](designer_Resources.md) · [로그·지표](planner_Analytics.md) · **QA·출시** · [라이브 운영](operator_LiveOps.md) · [사업화·법무](owner_Legal.md) · [needFix](common_needFix.md)
 
-> **문서 정보** · 문서 번호 `D11-QA` · 버전 v1.0 · 상태 `Draft` · 담당 QA · 최종 수정 2026-11-21 · 관련 문서 [시스템-전투](planning_System_Weapon.md) · [시스템-게임 흐름](planning_System_GameFlow.md) · [사업화·법무](owner_Business_Legal.md)
+> **문서 정보**
+
+| 문서 번호 | 버전 | 상태 | 책임자 | 협업 | 최종 수정 | 관련 문서 |
+|---|---|---|---|---|---|---|
+| `D11-QA` | v1.1 | `Draft` | QA 테스터 | 클라이언트 개발자 | 2026-11-23 | [시스템-전투](planner_System_Weapon.md) · [시스템-게임 흐름](planner_System_GameFlow.md) · [사업화·법무](owner_Legal.md) |
 
 **변경 이력**
 
 | 버전 | 날짜 | 변경 내용 | 사유 | 결정자 | 영향 범위 |
 |---|---|---|---|---|---|
-| v1.0 | 2026-11-21 | 최초 작성 | — | QA | — |
 
 ---
 
 ## 1. 목적
-**출시해도 되는 상태인지** 판정하는 문서예요. 시스템 문서의 예외 처리 표가 그대로 테스트 케이스가 돼요.
+**출시해도 되는 상태인지** 판정하는 문서임. 시스템 문서의 예외 처리 표가 그대로 테스트 케이스가 됨.
 
 ## 2. 버그 등급
 | 등급 | 기준 | 출시 조건 |
@@ -26,22 +29,22 @@
 ## 3. 테스트 케이스 (예외 처리 표에서)
 | TC ID | 확인 방법 | 기대 결과 | 관련 | 등급 |
 |---|---|---|---|---|
-| `TC_001` | 10웨이브 마지막 고블린 처치 | 클리어 창이 뜬다 | [S-01](common_needFix.md) · [REQ_101](planning_Requirements.md) | 치명 |
+| `TC_001` | 10웨이브 마지막 고블린 처치 | 클리어 창이 뜬다 | [S-01](common_needFix.md) · [REQ_101](planner_Requirements.md) | 치명 |
 | `TC_002` | 체력 100에서 체력 팩 줍기 | 100 유지, 팩 남음 | [S-02](common_needFix.md) | 높음 |
 | `TC_003` | NavMesh 없는 곳 근처에서 아이템 생성 대기 | 맵 밖 · 공중에 생기지 않음 | [S-03](common_needFix.md) | 보통 |
 | `TC_004` | 탄창 0에서 발사 버튼 | 빈 탄창 소리 · 재장전 버튼 깜빡임 | [S-04](common_needFix.md) | 보통 |
 | `TC_005` | 예비 0에서 재장전 | "탄약 없음" 안내 | [S-05](common_needFix.md) | 보통 |
 | `TC_006` | 발사 버튼 누른 채 재장전 | 재장전 된다 | [S-06](common_needFix.md) | 높음 |
 | `TC_007` | 수류탄 버튼 연타 5회 | 0.5초 간격으로만 나간다 | [S-07](common_needFix.md) | 높음 |
-| `TC_008` | 가장 큰 웨이브 시작 순간 | 목표 기기에서 30 FPS 이상 | [S-11](common_needFix.md) · [REQ_104](planning_Requirements.md) | 치명 |
+| `TC_008` | 가장 큰 웨이브 시작 순간 | 목표 기기에서 30 FPS 이상 | [S-11](common_needFix.md) · [REQ_104](planner_Requirements.md) | 치명 |
 | `TC_009` | 소리 끔 → 음량 슬라이더 움직이기 | 소리 안 남 | [S-12](common_needFix.md) | 높음 |
 | `TC_010` | 소리 끔 → 앱 재시작 | 꺼진 채 시작 | [S-12](common_needFix.md) | 높음 |
 | `TC_011` | 플레이 중 홈 버튼 → 복귀 | 설정 창이 열린 채 멈춰 있음 | [S-14](common_needFix.md) | 높음 |
 | `TC_012` | 게임오버 → Restart 10번 반복 | 크래시 · 메모리 증가 없음 | — | 치명 |
-| `TC_013` | 결제 직후 앱 강제 종료 → 재실행 | 상품 지급 | [서버](dev_Server_Data.md) | 치명 |
-| `TC_014` | 비행기 모드에서 광고 버튼 | 비활성 · 안내 문구 | [Business Model](planning_Monetization.md) §6 | 보통 |
+| `TC_013` | 결제 직후 앱 강제 종료 → 재실행 | 상품 지급 | [서버](developer_Server_Data.md) | 치명 |
+| `TC_014` | 비행기 모드에서 광고 버튼 | 비활성 · 안내 문구 | [Business Model](planner_Monetization.md) §6 | 보통 |
 
-> 시스템 문서([전투](planning_System_Weapon.md) §5 · [게임 흐름](planning_System_GameFlow.md) §8)의 예외 표에 새 줄이 생기면 여기에도 TC를 추가해요.
+> 시스템 문서([전투](planner_System_Weapon.md) §5 · [게임 흐름](planner_System_GameFlow.md) §8)의 예외 표에 새 줄이 생기면 여기에도 TC 추가 필요.
 
 ## 4. 기기 · 성능 기준 (정할 것 → [F-09](common_needFix.md#8-정할-것))
 | 항목 | 제안 |
@@ -56,10 +59,10 @@
 | 항목 | Google Play | App Store | 상태 |
 |---|---|---|---|
 | 앱 이름 · 짧은 설명 · 긴 설명 | ✔ | ✔ | 이름 미정 ([F-01](common_needFix.md)) |
-| 아이콘 · 스크린샷 · 피처 그래픽 | ✔ | ✔ | [리소스](design_Resources.md) `STORE_*` |
+| 아이콘 · 스크린샷 · 피처 그래픽 | ✔ | ✔ | [리소스](designer_Resources.md) `STORE_*` |
 | 등급분류 (설문) | IARC 설문 | 연령 등급 설문 | 폭력성(총 · 고블린) 항목 정확히 답하기 |
 | 데이터 보안 · 개인정보 라벨 | 데이터 보안 섹션 | App Privacy | 광고 SDK · 분석 도구 기준으로 작성 |
-| 개인정보처리방침 URL | 필수 | 필수 | [사업화 · 법무](owner_Business_Legal.md) |
+| 개인정보처리방침 URL | 필수 | 필수 | [사업화 · 법무](owner_Legal.md) |
 | 계정 삭제 방법 | 계정을 만들면 필수 | 계정을 만들면 필수 | 서버 도입 시 |
 | 테스트 트랙 | 내부 → 비공개 테스트 | TestFlight | — |
 
@@ -68,12 +71,12 @@
 |---|---|
 | 출시 방식 | 소프트 런칭 (일부 국가 · 단계적 출시 비율 낮게 시작) |
 | 모니터링 | 크래시 리포트 · `evt_perf_drop` · 리뷰 하루 2회 확인 |
-| 장애 공지 | 스토어 설명 · 게임 내 공지 문구 미리 준비 ([라이브 운영](ops_LiveOps.md)) |
+| 장애 공지 | 스토어 설명 · 게임 내 공지 문구 미리 준비 ([라이브 운영](operator_LiveOps.md)) |
 | 되돌리기 | 단계적 출시 중지 → 이전 빌드 다시 올리기 |
 
 ## 7. 출시 판정 (Gate P3 → 출시)
 - [ ] 치명 버그 0
 - [ ] TC 전부 통과 또는 사유 기록
-- [ ] [리소스](design_Resources.md) 라이선스 전부 `확인됨`
-- [ ] [사업화 · 법무](owner_Business_Legal.md) 전 항목 완료
-- [ ] [로그](planning_Analytics.md) 수집 확인
+- [ ] [리소스](designer_Resources.md) 라이선스 전부 `확인됨`
+- [ ] [사업화 · 법무](owner_Legal.md) 전 항목 완료
+- [ ] [로그](planner_Analytics.md) 수집 확인

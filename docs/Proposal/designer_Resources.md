@@ -1,20 +1,23 @@
 # 리소스 (아트 · 사운드) 명세 — game-TPS
 
-> 문서 세트: [목차](common_Index.md) · 기획: [컨셉](planning_Concept.md) · [시스템-전투](planning_System_Weapon.md) · [시스템-게임 흐름](planning_System_GameFlow.md) · [전투·개체](planning_Combat_Entity.md) · [레벨 디자인](planning_LevelDesign.md) · [밸런스](planning_Balance.md) · 사업·운영: [사업 검토](owner_Business.md) · [요구사항·로드맵](planning_Requirements.md) · [Business Model](planning_Monetization.md) · [서버·데이터](dev_Server_Data.md) · **리소스** · [로그·지표](planning_Analytics.md) · [QA·출시](qa_QA_Release.md) · [라이브 운영](ops_LiveOps.md) · [사업화·법무](owner_Business_Legal.md) · [needFix](common_needFix.md)
+> 문서 세트: [목차](common_Index.md) · 기획: [컨셉](planner_Concept.md) · [시스템-전투](planner_System_Weapon.md) · [시스템-게임 흐름](planner_System_GameFlow.md) · [전투·개체](planner_Combat_Entity.md) · [레벨 디자인](designer_LevelDesign.md) · [밸런스](planner_Balance.md) · 사업·운영: [사업 검토](owner_Business.md) · [요구사항·로드맵](planner_Requirements.md) · [Business Model](planner_Monetization.md) · [서버·데이터](developer_Server_Data.md) · **리소스** · [로그·지표](planner_Analytics.md) · [QA·출시](tester_Release.md) · [라이브 운영](operator_LiveOps.md) · [사업화·법무](owner_Legal.md) · [needFix](common_needFix.md)
 
-> **문서 정보** · 문서 번호 `D09-RES` · 버전 v1.0 · 상태 `Draft` · 담당 아티스트 · 사운드 디자이너 · 최종 수정 2026-11-21 · 관련 문서 [전투·개체](planning_Combat_Entity.md) · [사업화·법무](owner_Business_Legal.md)
+> **문서 정보**
+
+| 문서 번호 | 버전 | 상태 | 책임자 | 협업 | 최종 수정 | 관련 문서 |
+|---|---|---|---|---|---|---|
+| `D09-RES` | v1.1 | `Draft` | 아트 디자이너 | 사운드 디자이너 | 2026-11-23 | [전투·개체](planner_Combat_Entity.md) · [사업화·법무](owner_Legal.md) |
 
 **변경 이력**
 
 | 버전 | 날짜 | 변경 내용 | 사유 | 결정자 | 영향 범위 |
 |---|---|---|---|---|---|
-| v1.0 | 2026-11-21 | 최초 작성 | — | 아티스트 | — |
 
 ---
 
 ## 1. 목적
-게임에 들어가는 **모든 그림 · 모델 · 소리 · 폰트의 목록 · 규격 · 라이선스**를 관리해요. 외주 발주서와 출시 전 라이선스 점검표로 써요.
-> **규칙:** 라이선스 칸이 `확인됨`이 아닌 리소스가 하나라도 있으면 출시하지 않아요 ([QA · 출시](qa_QA_Release.md)).
+게임에 들어가는 **모든 그림 · 모델 · 소리 · 폰트의 목록 · 규격 · 라이선스**를 관리함. 외주 발주서와 출시 전 라이선스 점검표로 씀.
+> **규칙:** 라이선스 칸이 `확인됨`이 아닌 리소스가 하나라도 있으면 출시하지 않음 ([QA · 출시](tester_Release.md)).
 
 ## 2. 지금 쓰는 리소스 (`Assets` 폴더 기준)
 
@@ -58,21 +61,21 @@
 | `FONT_DMG` | `Oswald-VariableFont_wght.ttf` | ✅ SIL OFL 1.1 |
 | (예제) | `TextMesh Pro/Examples & Extras/Fonts/*` | 빌드에 안 쓰면 삭제 권장 |
 
-> 같은 파일이 `Audios/`와 `tps에 필요 재료/Clip*`에 **두 벌** 있어요. 쓰는 쪽만 남기면 빌드 용량 · 관리가 줄어요 → [F-07](common_needFix.md#8-정할-것)
+> 같은 파일이 `Audios/`와 `tps에 필요 재료/Clip*`에 **두 벌** 있음. 쓰는 쪽만 남기면 빌드 용량 · 관리가 줄어듦 → [F-07](common_needFix.md#8-정할-것)
 
 ## 3. 새로 필요한 리소스 (needFix 제안 기준)
 | 리소스 ID | 종류 | 규격 | 프레임 · 길이 | 관련 | 담당 | 상태 |
 |---|---|---|---|---|---|---|
-| `MDL_GOB_RUNNER` · `MDL_GOB_BRUTE` | 고블린 변형 (색 · 크기 차이로도 가능) | 기존 고블린 리그 재사용 | — | [S-16](common_needFix.md) | 미정 | 대기 |
-| `ANI_GOB_ATK_WINDUP` | 공격 예고 동작 | 기존 리그 | 0.3초 | [S-17](common_needFix.md) | 미정 | 대기 |
-| `FX_GOB_HITFLASH` | 피격 흰색 번쩍임 | 머티리얼 · 셰이더 | 0.1초 | [S-17](common_needFix.md) | 개발자 | 대기 |
-| `UI_CLEAR` | 클리어 창 | 1080 × 1920 기준 | — | [S-01](common_needFix.md) | 미정 | 대기 |
-| `UI_SHOP_*` | 업그레이드 상점 아이콘 3종 | 256 × 256 PNG | — | [Business Model](planning_Monetization.md) | 미정 | 대기 |
-| `SFX_MAG_EMPTY` | 빈 탄창 소리 | WAV · 0.2초 이내 | — | [S-04](common_needFix.md) | 미정 | 대기 |
-| `STORE_*` | 스토어 아이콘 · 스크린샷 · 피처 그래픽 | 스토어 규격 | — | [QA · 출시](qa_QA_Release.md) | 미정 | 대기 |
+| `MDL_GOB_RUNNER` · `MDL_GOB_BRUTE` | 고블린 변형 (색 · 크기 차이로도 가능) | 기존 고블린 리그 재사용 | — | [S-16](common_needFix.md) | 아트 디자이너 | 대기 |
+| `ANI_GOB_ATK_WINDUP` | 공격 예고 동작 | 기존 리그 | 0.3초 | [S-17](common_needFix.md) | 아트 디자이너 | 대기 |
+| `FX_GOB_HITFLASH` | 피격 흰색 번쩍임 | 머티리얼 · 셰이더 | 0.1초 | [S-17](common_needFix.md) | 클라이언트 개발자 | 대기 |
+| `UI_CLEAR` | 클리어 창 | 1080 × 1920 기준 | — | [S-01](common_needFix.md) | 아트 디자이너 | 대기 |
+| `UI_SHOP_*` | 업그레이드 상점 아이콘 3종 | 256 × 256 PNG | — | [Business Model](planner_Monetization.md) | 아트 디자이너 | 대기 |
+| `SFX_MAG_EMPTY` | 빈 탄창 소리 | WAV · 0.2초 이내 | — | [S-04](common_needFix.md) | 사운드 디자이너 | 대기 |
+| `STORE_*` | 스토어 아이콘 · 스크린샷 · 피처 그래픽 | 스토어 규격 | — | [QA · 출시](tester_Release.md) | 아트 디자이너 | 대기 |
 
 ## 4. 외주 · 무료 에셋 규칙
-- 외주 리소스는 계약서에 **저작권 양도 또는 이용 범위**(상업 · 기간 · 지역)를 적어요.
-- 무료 에셋 · 폰트 · 음원은 **다운로드한 페이지 주소 · 날짜 · 라이선스 원문**을 `docs/licenses/`에 저장해요.
-- Asset Store 에셋은 구매 · 다운로드한 계정의 기록이 근거예요.
-- 출처를 모르는 리소스는 **같은 역할의 확인된 리소스로 바꿔요.**
+- 외주 리소스는 계약서에 **저작권 양도 또는 이용 범위**(상업 · 기간 · 지역) 기록 필요.
+- 무료 에셋 · 폰트 · 음원은 **다운로드한 페이지 주소 · 날짜 · 라이선스 원문**을 `docs/licenses/`에 저장함.
+- Asset Store 에셋은 구매 · 다운로드한 계정의 기록이 근거임.
+- 출처를 모르는 리소스는 **같은 역할의 확인된 리소스로 교체 필요.**

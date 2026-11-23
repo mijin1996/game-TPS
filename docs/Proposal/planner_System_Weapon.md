@@ -1,16 +1,18 @@
 # 시스템 — 전투 (사격 · 재장전 · 수류탄 · 스코프 · 아이템)
 
-> 문서 세트: [목차](common_Index.md) · 기획: [컨셉](planning_Concept.md) · **시스템-전투** · [시스템-게임 흐름](planning_System_GameFlow.md) · [전투·개체](planning_Combat_Entity.md) · [레벨 디자인](planning_LevelDesign.md) · [밸런스](planning_Balance.md) · 사업·운영: [사업 검토](owner_Business.md) · [요구사항·로드맵](planning_Requirements.md) · [Business Model](planning_Monetization.md) · [서버·데이터](dev_Server_Data.md) · [리소스](design_Resources.md) · [로그·지표](planning_Analytics.md) · [QA·출시](qa_QA_Release.md) · [라이브 운영](ops_LiveOps.md) · [사업화·법무](owner_Business_Legal.md) · [needFix](common_needFix.md)
+> 문서 세트: [목차](common_Index.md) · 기획: [컨셉](planner_Concept.md) · **시스템-전투** · [시스템-게임 흐름](planner_System_GameFlow.md) · [전투·개체](planner_Combat_Entity.md) · [레벨 디자인](designer_LevelDesign.md) · [밸런스](planner_Balance.md) · 사업·운영: [사업 검토](owner_Business.md) · [요구사항·로드맵](planner_Requirements.md) · [Business Model](planner_Monetization.md) · [서버·데이터](developer_Server_Data.md) · [리소스](designer_Resources.md) · [로그·지표](planner_Analytics.md) · [QA·출시](tester_Release.md) · [라이브 운영](operator_LiveOps.md) · [사업화·법무](owner_Legal.md) · [needFix](common_needFix.md)
 > 관련 코드: `Gun.cs` · `PlayerShooter.cs` · `PlayerInput.cs` · `PlayerGrenade.cs` · `Grenade.cs` · `Scope.cs` · `ItemSpawn.cs` · `PlayerHealth.cs` · `Item/*.cs`
 
-> **문서 정보** · 문서 번호 `D03-WEAPON` · 버전 v1.0 · 상태 `Review` · 담당 기획자 · 클라이언트 개발자 · 최종 수정 2026-11-21 · 관련 문서 [전투·개체](planning_Combat_Entity.md) · [밸런스](planning_Balance.md)
+> **문서 정보**
+
+| 문서 번호 | 버전 | 상태 | 책임자 | 협업 | 최종 수정 | 관련 문서 |
+|---|---|---|---|---|---|---|
+| `D03-WEAPON` | v1.1 | `Review` | 기획자 | 클라이언트 개발자 | 2026-11-23 | [전투·개체](planner_Combat_Entity.md) · [밸런스](planner_Balance.md) |
 
 **변경 이력**
 
 | 버전 | 날짜 | 변경 내용 | 사유 | 결정자 | 영향 범위 |
 |---|---|---|---|---|---|
-| v0.9 | 2026-11-20 | 기존 문서 (자세한 기록은 git 커밋) | — | 기획자 | — |
-| v1.0 | 2026-11-21 | 문서 정보 · 변경 이력 · 문서 번호 추가, 사업 · 운영 문서와 연결 | — | 기획자 | 문서만 |
 
 ---
 
@@ -164,7 +166,7 @@ G = 총구: 조준점 방향으로 실제 발사 레이 (최대 50m)
 스코프 켜짐 -> C 대신 스코프 카메라 기준
 ```
 
-> 세부 조건(코드 기준)은 [부록 A-1](#a-1-사격-gunfire)에 있어요.
+> 세부 조건(코드 기준)은 [부록 A-1](#a-1-사격-gunfire)에 있음.
 
 ### 4-2. 재장전 `Gun.Reload()`
 
@@ -206,7 +208,7 @@ flowchart TD
   classDef endc fill:#6B7280,color:#fff,stroke:#6B7280
 ```
 
-> 세부 조건(코드 기준)은 [부록 A-2](#a-2-재장전-gunreload)에 있어요.
+> 세부 조건(코드 기준)은 [부록 A-2](#a-2-재장전-gunreload)에 있음.
 
 ### 4-3. 수류탄
 
@@ -255,7 +257,7 @@ flowchart TD
  ------------------------------------
 ```
 
-> 세부 조건(코드 기준)은 [부록 A-3](#a-3-수류탄)에 있어요.
+> 세부 조건(코드 기준)은 [부록 A-3](#a-3-수류탄)에 있음.
 
 ### 4-4. 아이템 생성 · 획득
 
@@ -314,7 +316,7 @@ flowchart TD
 A = 탄약 +30 · H = 체력 +50 · G = 수류탄 +5 · C = 코인 +200 (4종 균등 랜덤)
 ```
 
-> 세부 조건(코드 기준)은 [부록 A-4](#a-4-아이템-생성--획득)에 있어요.
+> 세부 조건(코드 기준)은 [부록 A-4](#a-4-아이템-생성--획득)에 있음.
 
 ## 5. 예외 처리 (Edge Case) — 현재 동작
 **[구성도] 예외 처리 지도 — 전투**
@@ -397,7 +399,7 @@ flowchart TB
 ---
 
 ## 부록 A. 세부 조건 (코드 기준)
-본문 흐름도의 조건을 코드 그대로 적은 개발 참고용이에요. 기획 내용은 본문에 있어요.
+본문 흐름도의 조건을 코드 그대로 적은 개발 참고용임. 기획 내용은 본문에 있음.
 
 ### A-1. 사격 `Gun.Fire()`
 ```
